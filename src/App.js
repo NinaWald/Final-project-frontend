@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import ProductList from './ProductList';
 
 export const App = () => {
   return (
     <div>
-      Find me in src/app.js!
+      <h1>My Webshop</h1>
+      <ProductList />
     </div>
-  )
-}
+  );
+};
