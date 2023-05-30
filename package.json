@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/eslint-parser": "^7.18.9",
     "@contentful/rich-text-react-renderer": "^15.16.5",
+    "@reduxjs/toolkit": "^1.9.5",
     "contentful": "^10.2.2",
     "eslint": "^8.21.0",
     "eslint-config-airbnb": "^19.0.4",

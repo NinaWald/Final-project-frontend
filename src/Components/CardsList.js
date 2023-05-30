@@ -1,26 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { products } from 'reducers/products';
+// import { cart } from '../reducers/cart';
 import { fetchProducts } from '../api';
 
 const CardsList = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const reduxProducts = useSelector((state) => state.products.items)
+  const [localProducts, setLocalProducts] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
       // eslint-disable-next-line no-shadow
-      const products = await fetchProducts();
-      setProducts(products);
+      const fetchedProducts = await fetchProducts();
+      setLocalProducts(fetchedProducts);
+      dispatch(products.actions.setProducts(fetchedProducts));
     };
 
     getProducts();
-  }, []);
+  }, [dispatch]);
 
-  console.log('Products:', products);
+  // console.log('Products:', products);
+  const productsToDisplay = reduxProducts.length > 0 ? reduxProducts : localProducts;
 
   return (
     <div>
-      {products.map((product) => (
+      {productsToDisplay.map((product) => (
         <div key={product.sys.id}>
           <h2>{product.fields.name}</h2>
           <div>{documentToReactComponents(product.fields.description)}</div>
