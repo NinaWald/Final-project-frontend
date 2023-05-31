@@ -25,20 +25,20 @@ const CardsList = () => {
 
   return (
     <div className="cards-grid">
-      {productsToDisplay.map((product) => (
-        <div className="cards" key={product.sys.id}>
-          <h2>{product.fields.name}</h2>
-          {product.fields.image && product.fields.image.length > 0 && (
+      {productsToDisplay.map((flowerWebshop) => (
+        <div className="cards" key={flowerWebshop.sys.id}>
+          <h2>{flowerWebshop.fields.name}</h2>
+          {flowerWebshop.fields.image && (
             <img
-              src={product.fields.image[0].fields.file.url}
-              alt={product.fields.image[0].fields.title} />
+              src={flowerWebshop.fields.image.fields.file.url}
+              alt={flowerWebshop.fields.image.fields.title} />
           )}
-          <p>Price: {product.fields.price}</p>
+          <p>Price: {flowerWebshop.fields.price}</p>
 
           <button
             type="button"
-            disabled={product.fields.inventory === 0}
-            onClick={() => dispatch(cart.actions.addItem(product))}>
+            disabled={flowerWebshop.fields.inventory === 0}
+            onClick={() => dispatch(cart.actions.addItem(flowerWebshop))}>
             Add to cart
           </button>
         </div>

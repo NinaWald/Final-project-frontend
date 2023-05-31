@@ -16,7 +16,7 @@ export const cart = createSlice({
         existingItem.quantity += 1;
       } else {
       // If the item doesn't exist, add it to the cart
-        state.items.push({ ...newItem, quantity: 1 });
+        state.items.push({ ...newItem, quantity: 1}); // eslint-disable-line
       }
     }
   }

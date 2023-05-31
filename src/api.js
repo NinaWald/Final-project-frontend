@@ -6,6 +6,6 @@ const client = createClient({
 });
 
 export const fetchProducts = async () => {
-  const response = await client.getEntries({ content_type: 'product' });
+  const response = await client.getEntries({ content_type: 'flowerWebshop' });
   return response.items;
 };
