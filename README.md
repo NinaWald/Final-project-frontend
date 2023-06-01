@@ -17,3 +17,7 @@ Alternatively, if you don't want a new git repo on your account;
 1. Open the directory in the terminal: `cd /path/to/react-starter`
 1. Install required dependencies with npm: `npm install`
 1. Start the project: `npm start`
+
+Video by "https://pixabay.com/users/monk_vadim-23253177/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=156117">Vadim Monk</a> from "https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=156117">Pixabay</a>
+
+https://final-backend-sl33jvdfkq-no.a.run.app/
