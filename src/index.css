@@ -2,12 +2,12 @@
 
 body {
   margin: 0;
-  font-family: 'Great Vibes', cursive;
+  font-family:'Times New Roman', Times, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 3px;
 }
 
 code {
-  font-family: 'Great Vibes', cursive;
+  font-family:'Times New Roman', Times, serif
 }

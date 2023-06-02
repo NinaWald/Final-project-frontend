@@ -7,16 +7,20 @@ export const cart = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-      const newItem = action.payload;
-      // Assuming the payload is the product item
-      // Check if the item already exists in the cart
-      const existingItem = state.items.find((item) => item.id === newItem.id);
+      const existingItem = state.items.find((item) => item.id === action.payload.id);
+
       if (existingItem) {
-      // If the item exists, increase its quantity
         existingItem.quantity += 1;
       } else {
-      // If the item doesn't exist, add it to the cart
-        state.items.push({ ...newItem, quantity: 1}); // eslint-disable-line
+        state.items.push({ id: action.payload.id, quantity: 1 });
+      }
+    },
+    removeItem: (state, action) => {
+      const existingItem = state.items.find((item) => item.id === action.payload.id);
+      if (existingItem && existingItem.quantity === 1) {
+        state.items = state.items.filter((item) => item.id !== action.payload.id);
+      } else if (existingItem) {
+        existingItem.quantity -= 1;
       }
     }
   }

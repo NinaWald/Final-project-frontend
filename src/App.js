@@ -8,9 +8,10 @@ import MemberPage from 'Pages/MemberPage'
 import NotFound from 'Pages/NotFound';
 import CardsList from './Components/CardsList';
 import Hero from './Components/Hero'
+import Cart from './Components/Cart';
+// import { CartProducts } from './Components/CartProducts'
 
 // import Cart from './Components/Cart'
-// import CartProducts from './Components/CartProducts'
 
 const reducer = combineReducers({
   cart: cart.reducer,
@@ -44,6 +45,7 @@ const HomePage = () => {
   return (
     <div>
       <Hero />
+      <Cart />
       <CardsList />
     </div>
   );
