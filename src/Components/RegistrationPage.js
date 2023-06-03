@@ -1,92 +1,108 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { API_URL } from '../utils/urls';
 
 const RegistrationPage = () => {
-  // States for registration
   const [username, setUserName] = useState('');
   const [useremail, setUserEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  // State for registration status
   const [isRegisteredMember, setIsRegisteredMember] = useState(false);
-
-  // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Handling the name change
+  useEffect(() => {
+    setUserName('');
+    setUserEmail('');
+    setPassword('');
+  }, []);
+
   const handleUserName = (e) => {
     setUserName(e.target.value);
     setSubmitted(false);
   };
-  // Handling the email change
+
   const handleUserEmail = (e) => {
     setUserEmail(e.target.value);
     setSubmitted(false);
   };
-  // Handling the password change
+
   const handlePassword = (e) => {
     setPassword(e.target.value);
     setSubmitted(false);
   };
-  // Handling the form submission
-  const handleSubmit = async (e) => {
+
+  const handleRegistration = async () => {
+    try {
+      const registerResponse = await fetch(API_URL('register'), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username,
+          useremail,
+          password
+        })
+      });
+
+      if (registerResponse.ok) {
+        setSubmitted(true);
+        setError(false);
+      } else {
+        setError(true);
+        setErrorMessage('Registration failed. Please try again.');
+      }
+    } catch (e) {
+      console.error('Error:', error);
+      setErrorMessage('An error occurred. Please try again later.');
+    }
+  };
+
+  const handleLogin = async () => {
+    try {
+      const loginResponse = await fetch(API_URL('login'), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          useremail,
+          password
+        })
+      });
+
+      if (loginResponse.ok) {
+        setSubmitted(true);
+        setError(false);
+      } else {
+        setError(true);
+        setErrorMessage('Login failed. Please check your credentials and try again.');
+      }
+    } catch (e) {
+      console.error('Error:', error);
+      setErrorMessage('An error occurred. Please try again later.');
+    }
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (username === '' || useremail === '' || password === '') {
       setError(true);
+      setErrorMessage('Please fill in all the fields.');
     } else {
-      try {
-        const registerResponse = await fetch(API_URL('register'), {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            username,
-            email: useremail,
-            password
-          })
-        });
-        if (registerResponse.ok) {
-          // User registered successfully, now log in
-          const loginResponse = await fetch(API_URL('login'), {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              email: useremail,
-              password
-            })
-          });
-
-          if (loginResponse.ok) {
-            // User logged in successfully
-            setSubmitted(true);
-            setError(false);
-          } else {
-            // Error occurred during login
-            setError(true);
-          }
-        } else {
-          // Error occurred during registration
-          setError(true);
-        }
-      } catch (er) {
-        console.error('Error:', error);
-        setErrorMessage('An error occurred. Please try again later.');
+      setError(false);
+      setErrorMessage('');
+      if (isRegisteredMember) {
+        handleLogin();
+      } else {
+        handleRegistration();
       }
     }
   };
-  // Showing success message
+
   const successMessage = () => {
     return (
-      <div
-        className="success"
-        style={{
-          display: submitted ? '' : 'none'
-        }}>
+      <div className="success" style={{ display: submitted ? '' : 'none' }}>
         <h1>User {username} successfully {isRegisteredMember ? 'logged in' : 'registered'}!</h1>
       </div>
     );
@@ -98,9 +114,7 @@ const RegistrationPage = () => {
         <h1>{isRegisteredMember ? 'User Login' : 'User Registration'}</h1>
       </div>
 
-      {/* Calling to the methods */}
       <div className="messages">
-        {/* Conditional rendering for error message */}
         {errorMessage && (
           <div className="error">
             <h1>{errorMessage}</h1>
@@ -109,8 +123,7 @@ const RegistrationPage = () => {
         {successMessage()}
       </div>
 
-      <form className="registration" htmlFor="registration">
-        {/* Labels and inputs for form data */}
+      <form className="registration" onSubmit={handleSubmit}>
         <label className="label" htmlFor="nameInput">
           <input
             id="nameInput"
@@ -150,7 +163,7 @@ const RegistrationPage = () => {
             checked={isRegisteredMember} />
           Already a registered member
         </label>
-        <button onClick={handleSubmit} className="btn" type="submit">
+        <button className="btn" type="submit">
           {isRegisteredMember ? 'Log In' : 'Register'}
         </button>
       </form>
