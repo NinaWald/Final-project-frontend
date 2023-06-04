@@ -2,21 +2,30 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import './flowercarousel.css'; // Import your custom CSS file
 
 const FlowerCarousel = () => {
-  const productsToDisplay = useSelector((state) => state.productsToDisplay);
+  const products = useSelector((state) => state.products.items);
 
   return (
-    <Carousel>
-      {productsToDisplay.map((flowerWebshop) => (
-        <div key={flowerWebshop.sys.id}>
-          {flowerWebshop.fields.image && (
-            <img
-              src={flowerWebshop.fields.image.fields.file.url}
-              alt={flowerWebshop.fields.image.fields.title} />
-          )}
-          <h3>{flowerWebshop.fields.name}</h3>
-          <p>Price: {flowerWebshop.fields.price}</p>
+    <Carousel
+      showThumbs={false}
+      showStatus={false}
+      showIndicators
+      infiniteLoop
+      autoPlay
+      interval={4000}
+      className="flower-carousel">
+      {Object.values(products).map((product) => (
+        <div key={product.id} className="carousel-slide">
+          <div className="carousel-content"> {/* Wrapper div for content */}
+            {/* Render the content of each product */}
+            <h2>{product.fields.name}</h2>
+            {product.fields.image && (
+              <img src={product.fields.image.fields.file.url} alt={product.fields.name} />
+            )}
+            <p>Price: {product.fields.price}</p>
+          </div>
         </div>
       ))}
     </Carousel>

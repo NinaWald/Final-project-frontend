@@ -9,7 +9,7 @@ import NotFound from 'pages/NotFound';
 import CardsList from './components/CardsList';
 // import Hero from './components/Hero'
 import Cart from './components/Cart';
-// import FlowerCarousel from './components/FlowerCarousel';
+import FlowerCarousel from './components/FlowerCarousel';
 
 const reducer = combineReducers({
   cart: cart.reducer,
@@ -43,6 +43,7 @@ const HomePage = () => {
   return (
     <div>
       <Cart />
+      <FlowerCarousel />
       <CardsList />
     </div>
   );

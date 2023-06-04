@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { cart } from 'reducers/cart';
-import { products } from 'reducers/products';
-import { fetchProducts } from '../api';
+import { fetchProductsAsync } from 'reducers/products';
 import './cardslist.css';
 
 const CardsList = () => {
@@ -10,19 +9,9 @@ const CardsList = () => {
   const reduxProducts = useSelector((state) => state.products.items);
   const cartItems = useSelector((state) => state.cart.items);
 
-  const [localProducts, setLocalProducts] = useState([]);
-
   useEffect(() => {
-    const getProducts = async () => {
-      const fetchedProducts = await fetchProducts();
-      setLocalProducts(fetchedProducts);
-      dispatch(products.actions.setProducts(fetchedProducts));
-    };
-
-    getProducts();
+    dispatch(fetchProductsAsync());
   }, [dispatch]);
-
-  const productsToDisplay = reduxProducts.length > 0 ? reduxProducts : localProducts;
 
   const handleRemoveItem = (productId) => {
     dispatch(cart.actions.removeItem(productId));
@@ -30,7 +19,7 @@ const CardsList = () => {
 
   return (
     <div className="cards-grid">
-      {productsToDisplay.map((flowerWebshop) => (
+      {reduxProducts.map((flowerWebshop) => (
         <div className="cards" key={flowerWebshop.sys.id}>
           <h2>{flowerWebshop.fields.name}</h2>
           {flowerWebshop.fields.image && (
@@ -61,3 +50,4 @@ const CardsList = () => {
 };
 
 export default CardsList;
+
