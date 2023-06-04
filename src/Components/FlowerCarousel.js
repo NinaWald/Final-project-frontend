@@ -12,8 +12,8 @@ const FlowerCarousel = () => {
       showThumbs={false}
       showStatus={false}
       showIndicators
-      infiniteLoop
       autoPlay
+      infiniteLoop
       interval={4000}
       className="flower-carousel">
       {Object.values(products).map((product) => (

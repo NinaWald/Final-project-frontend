@@ -6,10 +6,7 @@ import { cart } from 'reducers/cart';
 import { products } from 'reducers/products';
 import MemberPage from 'pages/MemberPage'
 import NotFound from 'pages/NotFound';
-import CardsList from './components/CardsList';
-// import Hero from './components/Hero'
-import Cart from './components/Cart';
-import FlowerCarousel from './components/FlowerCarousel';
+import { HomePage } from 'pages/HomePage';
 
 const reducer = combineReducers({
   cart: cart.reducer,
@@ -36,16 +33,6 @@ export const App = () => {
         </div>
       </BrowserRouter>
     </Provider>
-  );
-};
-
-const HomePage = () => {
-  return (
-    <div>
-      <Cart />
-      <FlowerCarousel />
-      <CardsList />
-    </div>
   );
 };
 
