@@ -37,3 +37,4 @@ export const fetchProductsAsync = () => async (dispatch) => {
   }
 };
 
+// the redux store

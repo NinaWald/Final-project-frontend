@@ -1,8 +1,8 @@
 import { createClient } from 'contentful';
 
 const client = createClient({
-  space: 'knfxiszb0317',
-  accessToken: '0fsM6xWglAt5nDSsnl_ZyjBqWayj1AnC9bVgAbbX5YM'
+  space: process.env.REACT_APP_SPACE,
+  accessToken: process.env.REACT_APP_ACCESS_TOKEN
 });
 
 export const fetchProducts = async () => {
