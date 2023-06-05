@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { API_URL } from '../utils/urls';
-import { loginUser } from './actions/authActions';
-import { setDiscount } from './actions/cartActions';
+import { loginUser } from '../actions/authActions';
+import { setDiscount } from '../actions/cartActions';
 
 const RegistrationPage = () => {
   const [username, setUserName] = useState('');
