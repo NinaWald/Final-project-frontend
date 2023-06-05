@@ -1,4 +1,5 @@
 import React from 'react';
+import RegistrationPage from '../components/RegistrationPage';
 import Cart from '../components/Cart';
 import FlowerCarousel from '../components/FlowerCarousel';
 import CardsList from '../components/CardsList';
@@ -9,6 +10,7 @@ export const HomePage = () => {
   return (
     <div>
       <Cart />
+      <RegistrationPage />
       <FlowerCarousel />
       <CardsList />
     </div>

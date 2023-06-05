@@ -3,15 +3,16 @@ import { useSelector } from 'react-redux';
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
-  const reduxProducts = useSelector((state) => state.products.items);
+  const products = useSelector((state) => state.products.items);
+  const discount = useSelector((state) => state.cart.discount);
 
   const totalPrice = cartItems.reduce((acc, item) => {
-    const flowerWebshop = reduxProducts.find((p) => p.sys.id === item.id);
-    if (flowerWebshop) {
-      return acc + flowerWebshop.fields.price * item.quantity;
+    const product = products.find((p) => p.sys.id === item.id);
+    if (product) {
+      return acc + product.fields.price * item.quantity;
     }
     return acc;
-  }, 0);
+  }, 0) * (1 - discount); // Multiply by (1 - discount) to apply the discount
 
   return (
     <div>
@@ -21,12 +22,12 @@ const Cart = () => {
       ) : (
         <div>
           {cartItems.map((item) => {
-            const flowerWebshop = reduxProducts.find((p) => p.sys.id === item.id);
-            if (flowerWebshop) {
+            const product = products.find((p) => p.sys.id === item.id);
+            if (product) {
               return (
                 <div key={item.id}>
-                  <h3>{flowerWebshop.fields.name}</h3>
-                  <p>Price: {flowerWebshop.fields.price}</p>
+                  <h3>{product.fields.name}</h3>
+                  <p>Price: {product.fields.price}</p>
                   <p>Quantity: {item.quantity}</p>
                 </div>
               );

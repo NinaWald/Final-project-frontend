@@ -6,7 +6,7 @@ import './cardslist.css';
 
 const CardsList = () => {
   const dispatch = useDispatch();
-  const reduxProducts = useSelector((state) => state.products.items);
+  const products = useSelector((state) => state.products.items);
   const cartItems = useSelector((state) => state.cart.items);
 
   useEffect(() => {
@@ -19,27 +19,27 @@ const CardsList = () => {
 
   return (
     <div className="cards-grid">
-      {reduxProducts.map((flowerWebshop) => (
-        <div className="cards" key={flowerWebshop.sys.id}>
-          <h2>{flowerWebshop.fields.name}</h2>
-          {flowerWebshop.fields.image && (
+      {products.map((product) => (
+        <div className="cards" key={product.sys.id}>
+          <h2>{product.fields.name}</h2>
+          {product.fields.image && (
             <img
-              src={flowerWebshop.fields.image.fields.file.url}
-              alt={flowerWebshop.fields.image.fields.title} />
+              src={product.fields.image.fields.file.url}
+              alt={product.fields.image.fields.title} />
           )}
-          <p>Price: {flowerWebshop.fields.price}</p>
+          <p>Price: {product.fields.price}</p>
 
           <button
             type="button"
-            disabled={flowerWebshop.fields.inventory === 0}
-            onClick={() => dispatch(cart.actions.addItem({ id: flowerWebshop.sys.id }))}>
+            disabled={product.fields.inventory === 0}
+            onClick={() => dispatch(cart.actions.addItem({ id: product.sys.id }))}>
             Add to cart
           </button>
 
-          {cartItems.find((item) => item.id === flowerWebshop.sys.id) && (
+          {cartItems.find((item) => item.id === product.sys.id) && (
             <button
               type="button"
-              onClick={() => handleRemoveItem(flowerWebshop.sys.id)}>
+              onClick={() => handleRemoveItem(product.sys.id)}>
               Remove from cart
             </button>
           )}

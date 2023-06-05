@@ -3,6 +3,8 @@ import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { cart } from 'reducers/cart';
+import { cartReducer } from 'reducers/cartReducer';
+import { authReducer } from 'reducers/authReducer';
 import { products } from 'reducers/products';
 import MemberPage from 'pages/MemberPage'
 import NotFound from 'pages/NotFound';
@@ -10,7 +12,9 @@ import { HomePage } from 'pages/HomePage';
 
 const reducer = combineReducers({
   cart: cart.reducer,
-  products: products.reducer
+  products: products.reducer,
+  authReducer: authReducer.reducer,
+  cartReducer: cartReducer.reducer
 })
 
 const store = configureStore({ reducer })
@@ -52,4 +56,12 @@ export const App = () => {
       </Router>
     </Provider>
           <FlowerCarousel />
+            // Dispatching actions
+  const addToCart = (product) => {
+    store.dispatch(cartActions.addItem(product));
+  };
+
+  const loginUser = (username, accessToken) => {
+    store.dispatch(authActions.loginUser({ username, accessToken }));
+  };
 */

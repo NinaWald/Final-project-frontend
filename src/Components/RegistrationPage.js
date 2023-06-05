@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { API_URL } from '../utils/urls';
+import { loginUser } from './actions/authActions';
+import { setDiscount } from './actions/cartActions';
 
 const RegistrationPage = () => {
   const [username, setUserName] = useState('');
@@ -58,6 +61,8 @@ const RegistrationPage = () => {
     }
   };
 
+  const dispatch = useDispatch();
+
   const handleLogin = async () => {
     try {
       const loginResponse = await fetch(API_URL('login'), {
@@ -67,11 +72,18 @@ const RegistrationPage = () => {
         },
         body: JSON.stringify({
           useremail,
+          username,
           password
         })
       });
 
       if (loginResponse.ok) {
+        const data = await loginResponse.json();
+        const { username: responseUsername, accessToken, discount } = data.response;
+
+        dispatch(loginUser(responseUsername, accessToken));
+        dispatch(setDiscount(discount));
+
         setSubmitted(true);
         setError(false);
       } else {
