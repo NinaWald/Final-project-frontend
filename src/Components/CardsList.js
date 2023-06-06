@@ -21,8 +21,8 @@ const CardsList = () => {
   return (
     <div className="cards-grid">
       {products.map((product) => (
-        <Link to={`/product/${product.sys.id}`} key={product.sys.id}>
-          <div className="cards">
+        <div className="cards" key={product.sys.id}>
+          <Link to={`/product/${product.sys.id}`}>
             <h2>{product.fields.name}</h2>
             {product.fields.image && (
               <img
@@ -30,23 +30,23 @@ const CardsList = () => {
                 alt={product.fields.image.fields.title} />
             )}
             <p>Price: {product.fields.price}</p>
+          </Link>
 
+          <button
+            type="button"
+            disabled={product.fields.inventory === 0}
+            onClick={() => dispatch(cart.actions.addItem({ id: product.sys.id }))}>
+            Add to cart
+          </button>
+
+          {cartItems.find((item) => item.id === product.sys.id) && (
             <button
               type="button"
-              disabled={product.fields.inventory === 0}
-              onClick={() => dispatch(cart.actions.addItem({ id: product.sys.id }))}>
-              Add to cart
+              onClick={() => handleRemoveItem({ id: product.sys.id })}>
+              Remove from cart
             </button>
-
-            {cartItems.find((item) => item.id === product.sys.id) && (
-              <button
-                type="button"
-                onClick={() => handleRemoveItem(product.sys.id)}>
-                Remove from cart
-              </button>
-            )}
-          </div>
-        </Link>
+          )}
+        </div>
       ))}
     </div>
   );
