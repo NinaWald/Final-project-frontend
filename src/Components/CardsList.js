@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { cart } from 'reducers/cart';
 import { fetchProductsAsync } from 'reducers/products';
 import './cardslist.css';
@@ -20,30 +21,32 @@ const CardsList = () => {
   return (
     <div className="cards-grid">
       {products.map((product) => (
-        <div className="cards" key={product.sys.id}>
-          <h2>{product.fields.name}</h2>
-          {product.fields.image && (
-            <img
-              src={product.fields.image.fields.file.url}
-              alt={product.fields.image.fields.title} />
-          )}
-          <p>Price: {product.fields.price}</p>
+        <Link to={`/product/${product.sys.id}`} key={product.sys.id}>
+          <div className="cards">
+            <h2>{product.fields.name}</h2>
+            {product.fields.image && (
+              <img
+                src={product.fields.image.fields.file.url}
+                alt={product.fields.image.fields.title} />
+            )}
+            <p>Price: {product.fields.price}</p>
 
-          <button
-            type="button"
-            disabled={product.fields.inventory === 0}
-            onClick={() => dispatch(cart.actions.addItem({ id: product.sys.id }))}>
-            Add to cart
-          </button>
-
-          {cartItems.find((item) => item.id === product.sys.id) && (
             <button
               type="button"
-              onClick={() => handleRemoveItem(product.sys.id)}>
-              Remove from cart
+              disabled={product.fields.inventory === 0}
+              onClick={() => dispatch(cart.actions.addItem({ id: product.sys.id }))}>
+              Add to cart
             </button>
-          )}
-        </div>
+
+            {cartItems.find((item) => item.id === product.sys.id) && (
+              <button
+                type="button"
+                onClick={() => handleRemoveItem(product.sys.id)}>
+                Remove from cart
+              </button>
+            )}
+          </div>
+        </Link>
       ))}
     </div>
   );

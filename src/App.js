@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
+import ProductPage from 'pages/ProductPage';
 import { cart } from './reducers/cart';
 import { authSlice } from './reducers/authReducer';
 import { products } from './reducers/products';
@@ -28,6 +29,7 @@ export const App = () => {
         <div className="outer-wrapper">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/product/:productId" element={<ProductPage />} />
             <Route path="/member" element={<MemberPage />} />
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<Navigate to="/404" />} />
