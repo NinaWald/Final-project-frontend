@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { API_URL } from '../utils/urls';
-import { loginUser } from '../actions/authActions';
-import { setDiscount } from '../actions/cartActions';
+import { loginUser, setDiscount } from '../reducers/authReducer';
+import { clearCart } from '../reducers/cart';
 
 const RegistrationPage = () => {
   const [username, setUserName] = useState('');
@@ -83,6 +83,7 @@ const RegistrationPage = () => {
 
         dispatch(loginUser(responseUsername, accessToken));
         dispatch(setDiscount(discount));
+        dispatch(clearCart());
 
         setSubmitted(true);
         setError(false);

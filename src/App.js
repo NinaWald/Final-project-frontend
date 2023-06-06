@@ -3,8 +3,7 @@ import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { cart } from './reducers/cart';
-import { cartReducer } from './reducers/cartReducer';
-import { authReducer } from './reducers/authReducer';
+import { authSlice } from './reducers/authReducer';
 import { products } from './reducers/products';
 import { HomePage } from './pages/HomePage';
 import MemberPage from './pages/MemberPage'
@@ -13,8 +12,7 @@ import NotFound from './pages/NotFound';
 const reducer = combineReducers({
   cart: cart.reducer,
   products: products.reducer,
-  authReducer: authReducer.reducer,
-  cartReducer: cartReducer.reducer
+  auth: authSlice.reducer
 })
 
 const store = configureStore({ reducer })
