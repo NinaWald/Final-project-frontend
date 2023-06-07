@@ -24,4 +24,6 @@ Video by "https://pixabay.com/users/monk_vadim-23253177/?utm_source=link-attribu
 
 "https://www.flaticon.com/free-icons/basket" title="basket icons">Basket icons created by Karacis - Flaticon<
 
+"https://www.flaticon.com/free-icons/bouquet" title="bouquet icons">Bouquet icons created by Eucalyp - Flaticon
+
 https://final-backend-sl33jvdfkq-no.a.run.app/
