@@ -22,4 +22,6 @@ Images from Pinterest
 
 Video by "https://pixabay.com/users/monk_vadim-23253177/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=156117">Vadim Monk</a> from "https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=156117">Pixabay</a>
 
+"https://www.flaticon.com/free-icons/basket" title="basket icons">Basket icons created by Karacis - Flaticon<
+
 https://final-backend-sl33jvdfkq-no.a.run.app/

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import './flowercarousel.css';
+import '../flowercarousel.css';
 
 const FlowerCarousel = () => {
   const products = useSelector((state) => state.products.items);

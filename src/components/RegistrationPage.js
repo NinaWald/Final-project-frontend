@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { API_URL } from '../utils/urls';
 import { loginUser, setDiscount } from '../reducers/authReducer';
 import { clearCart } from '../reducers/cart';
+import '../registration.css'
 
 const RegistrationPage = () => {
   const [username, setUserName] = useState('');
@@ -137,48 +138,50 @@ const RegistrationPage = () => {
       </div>
 
       <form className="registration" onSubmit={handleSubmit}>
-        <label className="label" htmlFor="nameInput">
-          <input
-            id="nameInput"
-            onChange={handleUserName}
-            className="input"
-            value={username}
-            type="text"
-            placeholder="Your name"
-            required />
-        </label>
-        <label className="label" htmlFor="emailInput">
-          <input
-            id="emailInput"
-            onChange={handleUserEmail}
-            className="input"
-            value={useremail}
-            type="email"
-            placeholder="E-mail"
-            required />
-        </label>
-        <label className="label" htmlFor="passwordInput">
-          <input
-            id="passwordInput"
-            onChange={handlePassword}
-            className="input"
-            value={password}
-            type="password"
-            placeholder="Password"
-            required />
-        </label>
-        <label className="label" htmlFor="registeredMember">
-          <input
-            id="registeredMember"
-            onChange={() => setIsRegisteredMember(!isRegisteredMember)}
-            className="input"
-            type="checkbox"
-            checked={isRegisteredMember} />
+        <div className="regis-content">
+          <label className="label" htmlFor="nameInput">
+            <input
+              id="nameInput"
+              onChange={handleUserName}
+              className="input"
+              value={username}
+              type="text"
+              placeholder="Your name"
+              required />
+          </label>
+          <label className="label" htmlFor="emailInput">
+            <input
+              id="emailInput"
+              onChange={handleUserEmail}
+              className="input"
+              value={useremail}
+              type="email"
+              placeholder="E-mail"
+              required />
+          </label>
+          <label className="label" htmlFor="passwordInput">
+            <input
+              id="passwordInput"
+              onChange={handlePassword}
+              className="input"
+              value={password}
+              type="password"
+              placeholder="Password"
+              required />
+          </label>
+          <label className="label" htmlFor="registeredMember">
+            <input
+              id="registeredMember"
+              onChange={() => setIsRegisteredMember(!isRegisteredMember)}
+              className="input"
+              type="checkbox"
+              checked={isRegisteredMember} />
           Already a registered member
-        </label>
-        <button className="btn" type="submit">
-          {isRegisteredMember ? 'Log In' : 'Register'}
-        </button>
+          </label>
+          <button className="btn" type="submit">
+            {isRegisteredMember ? 'Log In' : 'Register'}
+          </button>
+        </div>
       </form>
     </div>
   );

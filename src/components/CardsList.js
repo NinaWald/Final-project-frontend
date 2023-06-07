@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { cart } from 'reducers/cart';
 import { fetchProductsAsync } from 'reducers/products';
-import './cardslist.css';
+import '../cardslist.css';
 
 const CardsList = () => {
   const dispatch = useDispatch();

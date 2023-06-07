@@ -1,0 +1,107 @@
+/* navbar.css */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background-color: #CD7CB1;
+    transition: top 0.3s ease;
+  }
+
+  .cart-icon {
+    width: 44px;
+    height: 44px;
+    margin-left: 20px;
+  }
+  
+  .navbar-scroll {
+    top: -80px; /* Hides the navbar initially */
+  }
+  
+  .links-container {
+    display: flex;
+    justify-content: flex-end; 
+  }
+  
+  .link-item {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    margin-left: 20px;
+  }
+  
+  .link-item:hover {
+    color:#CD7CB1;
+  }
+
+  .cart-container {
+    margin-right: 20px;
+  }
+
+  .bm-burger-button {
+    display: none;
+  }
+  
+
+  @media (max-width: 768px) {
+    .links-container {
+      display: none;
+    }
+  
+    .bm-burger-button {
+      position: fixed;
+      width: 36px;
+      height: 30px;
+      right: 20px;
+      top: 20px;
+      display: block;
+    }
+  
+    .bm-burger-bars {
+      background: #fff;
+    }
+  
+    .bm-menu-wrap {
+      position: fixed;
+      height: 100%;
+      top: 0;
+    }
+  
+    .bm-menu {
+      background-color: #EDD2E4;
+      padding: 2.5em 1.5em 0;
+      font-size: 1.15em;
+    }
+  
+    .bm-item-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .bm-item {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 20px;
+      transition: color 0.3s ease;
+    }
+  
+    .bm-item:hover {
+      color: #ffcc00;
+    }
+  }
+  
+  
+  
