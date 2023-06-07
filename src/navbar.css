@@ -52,6 +52,36 @@
   .bm-burger-button {
     display: none;
   }
+  .bm-cross-button {
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: 40px;
+    top: 40px;
+    cursor: pointer;
+  }
+  
+  .bm-cross-button .bm-cross {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    right: 40px;
+    top: 40px;
+  }
+  
+  .bm-cross:before,
+  .bm-cross:after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 25px;
+    background-color: #CD7CB1;
+  }
+  
   
 
   @media (max-width: 768px) {
@@ -80,14 +110,15 @@
   
     .bm-menu {
       background-color: #EDD2E4;
-      padding: 2.5em 1.5em 0;
-      font-size: 1.15em;
+      padding: 4.5em 1.5em 0;
+      font-size: 2.15em;
     }
   
     .bm-item-list {
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-top: 50px;
     }
   
     .bm-item {
@@ -99,7 +130,7 @@
     }
   
     .bm-item:hover {
-      color: #ffcc00;
+      color: purple;
     }
   }
   
