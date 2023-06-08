@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import HamburgerMenu from 'react-hamburger-menu';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import '../navbar.css';
-import cartItem from '../assets/shopping-bag.png'
+import cartItem from '../assets/shopping-bag.png';
 
 const Navbar = () => {
   const [scroll, setScroll] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
   const cartItems = useSelector((state) => state.cart.items);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 13 || event.keyCode === 32) {
+      toggleMenu();
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,10 +29,6 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const handleMenuClick = () => {
-    setIsOpen(!isOpen); // Toggle isOpen state
-  };
 
   return (
     <div className={`navbar ${scroll ? 'navbar-scroll' : ''}`}>
@@ -41,27 +44,27 @@ const Navbar = () => {
         <Link className="link-item" to="/member">Member</Link>
         <Link className="link-item" to="/about">About</Link>
       </div>
-      <HamburgerMenu
-        isOpen={isOpen}
-        menuClicked={handleMenuClick}
-        width={32}
-        height={24}
-        strokeWidth={3}
-        rotate={0}
-        color="black"
-        borderRadius={0}
-        animationDuration={0.5} />
 
-      {/* Menu items */}
-      {isOpen && (
-        <div className="menu-items">
-          <Link className="menu-item" to="/">Home</Link>
-          <Link className="menu-item" to="/member">Member</Link>
-          <Link className="menu-item" to="/about">About</Link>
-        </div>
-      )}
+      <ul className={`navbar-links ${menuOpen ? 'navbar-links-open' : ''}`}>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Member</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+
+      <div
+        className="navbar-hamburger-menu"
+        role="button"
+        aria-expanded={menuOpen}
+        onClick={toggleMenu}
+        onKeyDown={handleKeyDown}
+        tabIndex="0">
+        <span> </span>
+        <span> </span>
+        <span> </span>
+      </div>
     </div>
   );
 };
 
 export default Navbar;
+

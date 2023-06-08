@@ -6,20 +6,11 @@
   align-items: center;
   padding: 25px;
   height: 100px;
-  background-color:#CD7CB1;
+  background-color: #CD7CB1;
+}
 
-  .menu-item {
-    display: block;
-    padding: 10px;
-    background-color: #CD7CB1;
-    color: white;
-    text-decoration: none;
-  }
-  
-  .menu-item:hover {
-    background-color: #A63D87;
-  }
-  ;
+.links-container {
+  display: none;
 }
 
 .navbar-scroll {
@@ -49,49 +40,95 @@
   align-items: center;
   width: 16px;
   height: 16px;
-  background-color: #ff0000;
+  background-color: black;
   color: #fff;
   font-size: 12px;
   font-weight: bold;
   border-radius: 50%;
 }
 
-.links-container {
+.navbar-links {
+  display: none;
+}
+.navbar-links-open {
   display: flex;
-  justify-content: flex-end;
+  list-style: none;
+  flex-direction: column;
+  position: absolute;
+  top: 80px;
+  right: 0;
+  height: 300px;
+  background-color:#EDD2E4;
+  padding-top: 30px;
+  padding-left: 0;
+  align-items: center;
+  width: 40%;
+  z-index: 100;
+  
 }
 
-.link-item {
-  margin-right: 10px;
-  text-decoration: none;
-  color: #000;
-}
-
-/* navbar.css */
-
-.menu-item {
+.navbar-hamburger-menu {
   display: block;
-  padding: 10px;
-  background-color: #CD7CB1;
-  color: white;
-  text-decoration: none;
-}
-
-.menu-item:hover {
-  background-color: #A63D87;
-}
-
-
-/* Hamburger Menu */
-.hamburger-menu {
-  display: none; /* Hide the default hamburger menu */
-}
-
-/* Custom styles for the hamburger menu button */
-.hamburger-menu-icon {
-  width: 32px;
-  height: 24px;
   cursor: pointer;
+  margin-left: auto;
+  z-index: 101;
+  margin-right: 15px;
 }
 
-/* Add more CSS styling as needed */
+.navbar-hamburger-menu span {
+  display: block;
+  width: 30px;
+  height: 5px;
+  margin-bottom: 5px;
+  background-color: #E3F7FC;
+  z-index: 105;
+}
+  
+  .navbar-links-open li {
+    margin-right: 0;
+    margin-bottom: 10px;
+    text-align: right;
+  }
+  .navbar-links li:last-child {
+    margin-bottom: 0;
+  }
+
+  .navbar-links-open a {
+    color:#CD7CB1;
+    font-size: 1.2em; /* Increase the font size for better readability */
+  }
+
+
+    /* desktop */
+    @media (min-width: 668px) {
+
+      .navbar-logo img {
+        display: flex;
+        height: 50px;
+      }
+      
+      .navbar-links {
+        display: none;
+      }
+      
+      .navbar-links li {
+        margin-right: 20px;
+      }
+      
+      .navbar-links li:last-child {
+        margin-right: 0;
+      }
+      
+      .navbar-links a {
+        text-decoration: none;
+        color: #E3F7FC;
+      }
+      
+      .navbar-hamburger-menu {
+        display: none;
+      }
+
+      .links-container {
+        display: flex;
+      }
+    }
