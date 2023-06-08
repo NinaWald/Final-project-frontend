@@ -19,11 +19,6 @@
     display: none;
   }
 
-  .flower-carousel .awssld__bullets li button::before {
-    color: #CD7CB1 !important;
-  }
-  
-  
   .carousel-slide {
     display: flex;
     align-items: center;

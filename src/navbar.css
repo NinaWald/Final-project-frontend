@@ -1,131 +1,97 @@
 /* navbar.css */
 
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-    background-color: #CD7CB1;
-    transition: top 0.3s ease;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  height: 100px;
+  background-color:#CD7CB1;
 
-  .cart-icon {
-    width: 44px;
-    height: 44px;
-    margin-left: 20px;
-  }
-  
-  .navbar-scroll {
-    top: -80px; /* Hides the navbar initially */
-  }
-  
-  .links-container {
-    display: flex;
-    justify-content: flex-end; 
-  }
-  
-  .link-item {
+  .menu-item {
     display: block;
     padding: 10px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
-    margin-left: 20px;
-  }
-  
-  .link-item:hover {
-    color:#CD7CB1;
-  }
-
-  .cart-container {
-    margin-right: 20px;
-  }
-
-  .bm-burger-button {
-    display: none;
-  }
-
-  
-  .bm-cross-button, .bm-burger-button, .bm-icon, .bm-cross {
-    width: 100px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    right: 40px;
-    top: 40px;
-  }
-  
-  .bm-cross:before,
-  .bm-cross:after {
-    content: "";
-    position: absolute;
-    width: 5px;
-    height: 25px;
     background-color: #CD7CB1;
+    color: white;
+    text-decoration: none;
   }
   
-  
-  
+  .menu-item:hover {
+    background-color: #A63D87;
+  }
+  ;
+}
 
-  @media (max-width: 768px) {
-    .links-container {
-      display: none;
-    }
-  
-    .bm-burger-button {
-      position: fixed;
-      width: 36px;
-      height: 30px;
-      right: 20px;
-      top: 20px;
-      display: block;
-    }
-  
-    .bm-burger-bars {
-      background: #fff;
-    }
-  
-    .bm-menu-wrap {
-      position: fixed;
-      height: 100%;
-      top: 0;
-    }
-  
-    .bm-menu {
-      background-color: #EDD2E4;
-      padding: 4.5em 1.5em 0;
-      font-size: 2.15em;
-    }
-  
-    .bm-item-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 50px;
-    }
-  
-    .bm-item {
-      display: inline-block;
-      color: #fff;
-      text-decoration: none;
-      margin-bottom: 20px;
-      transition: color 0.3s ease;
-    }
-  
-    .bm-item:hover {
-      color: purple;
-    }
-  }
-  
-  
-  
+.navbar-scroll {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-container {
+  margin-right: 10px;
+}
+
+.cart-icon-link {
+  position: relative;
+}
+
+.cart-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.cart-item-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  background-color: #ff0000;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.links-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.link-item {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #000;
+}
+
+/* navbar.css */
+
+.menu-item {
+  display: block;
+  padding: 10px;
+  background-color: #CD7CB1;
+  color: white;
+  text-decoration: none;
+}
+
+.menu-item:hover {
+  background-color: #A63D87;
+}
+
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: none; /* Hide the default hamburger menu */
+}
+
+/* Custom styles for the hamburger menu button */
+.hamburger-menu-icon {
+  width: 32px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* Add more CSS styling as needed */

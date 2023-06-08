@@ -8,13 +8,16 @@ a {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
     gap: 16px; /* spacing between cards */
+
+    
   }
 
   .cards {
-    border: 1px solid #ccc;
+    border: 1px solid #CD7CB1;
     border-radius: 4px;
     padding: 16px;
     margin-bottom: 16px;
+    background-color: #f7f0f5;
   }
   
   .cards h2 {
@@ -35,7 +38,7 @@ a {
   }
   
   .cards button {
-    background-color: #2e6e5b;
+    background-color: #CD7CB1;
     color: #fff;
     border: none;
     padding: 8px 16px;
@@ -44,13 +47,15 @@ a {
   }
   
   .cards button:disabled {
-    background-color: #ccc;
+    background-color: #e0d4d4;
     cursor: not-allowed;
   }
     /* desktop */
   @media (min-width: 668px) {
     .cards-grid {
       grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+      margin-left: 100px;
+      margin-right: 100px;
     }
   }
   

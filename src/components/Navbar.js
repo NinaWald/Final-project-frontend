@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { slide as Menu } from 'react-burger-menu';
+import HamburgerMenu from 'react-hamburger-menu';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import '../navbar.css';
@@ -7,6 +7,7 @@ import cartItem from '../assets/shopping-bag.png'
 
 const Navbar = () => {
   const [scroll, setScroll] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const cartItems = useSelector((state) => state.cart.items);
 
   useEffect(() => {
@@ -22,6 +23,10 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleMenuClick = () => {
+    setIsOpen(!isOpen); // Toggle isOpen state
+  };
+
   return (
     <div className={`navbar ${scroll ? 'navbar-scroll' : ''}`}>
       <div className="cart-container">
@@ -36,12 +41,25 @@ const Navbar = () => {
         <Link className="link-item" to="/member">Member</Link>
         <Link className="link-item" to="/about">About</Link>
       </div>
+      <HamburgerMenu
+        isOpen={isOpen}
+        menuClicked={handleMenuClick}
+        width={32}
+        height={24}
+        strokeWidth={3}
+        rotate={0}
+        color="black"
+        borderRadius={0}
+        animationDuration={0.5} />
 
-      <Menu right>
-        <a className="burger-menu-item" href="/">Home</a>
-        <a className="burger-menu-item" href="/member">Member</a>
-        <a className="burger-menu-item" href="/about">About</a>
-      </Menu>
+      {/* Menu items */}
+      {isOpen && (
+        <div className="menu-items">
+          <Link className="menu-item" to="/">Home</Link>
+          <Link className="menu-item" to="/member">Member</Link>
+          <Link className="menu-item" to="/about">About</Link>
+        </div>
+      )}
     </div>
   );
 };

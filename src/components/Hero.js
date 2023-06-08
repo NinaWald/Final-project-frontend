@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
-import heroVideo from '../Assets/anim.video.mp4';
+import heroVideo from '../assets/hero.video.mp4';
 
 const HeroContainer = styled.div`
   width: 100%;
