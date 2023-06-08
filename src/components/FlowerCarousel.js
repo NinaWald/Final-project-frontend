@@ -1,25 +1,25 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import AwesomeSlider from 'react-awesome-slider';
+import withAutoplay from 'react-awesome-slider/dist/autoplay';
+import 'react-awesome-slider/dist/styles.css';
+import 'react-awesome-slider/dist/custom-animations/scale-out-animation.css';
 import '../flowercarousel.css';
+
+const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const FlowerCarousel = () => {
   const products = useSelector((state) => state.products.items);
 
   return (
-    <Carousel
-      showThumbs={false}
-      showStatus={false}
-      showIndicators
-      autoPlay
-      infiniteLoop
-      interval={4000}
-      className="flower-carousel">
+    <AutoplaySlider
+      className="flower-carousel"
+      play
+      cancelOnInteraction={false}
+      interval={5000}>
       {Object.values(products).map((product) => (
         <div key={product.id} className="carousel-slide">
-          <div className="carousel-content"> {/* Wrapper div for content */}
-            {/* Render the content of each product */}
+          <div className="carousel-content">
             <h2>{product.fields.name}</h2>
             {product.fields.image && (
               <img src={product.fields.image.fields.file.url} alt={product.fields.name} />
@@ -28,7 +28,7 @@ const FlowerCarousel = () => {
           </div>
         </div>
       ))}
-    </Carousel>
+    </AutoplaySlider>
   );
 };
 

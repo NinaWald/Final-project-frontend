@@ -52,17 +52,9 @@
   .bm-burger-button {
     display: none;
   }
-  .bm-cross-button {
-    display: block;
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    right: 40px;
-    top: 40px;
-    cursor: pointer;
-  }
+
   
-  .bm-cross-button .bm-cross {
+  .bm-cross-button, .bm-burger-button, .bm-icon, .bm-cross {
     width: 100px;
     height: 100px;
     display: flex;
@@ -81,6 +73,7 @@
     height: 25px;
     background-color: #CD7CB1;
   }
+  
   
   
 
