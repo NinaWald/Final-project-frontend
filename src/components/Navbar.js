@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import '../navbar.css';
 import cartItem from '../assets/shopping-bag.png';
 
 const Navbar = () => {
-  const [scroll, setScroll] = useState(false);
   const cartItems = useSelector((state) => state.cart.items);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -18,20 +18,12 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 0;
-      setScroll(isScrolled);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    // Close the menu when the location changes
+    setMenuOpen(false);
+  }, [location]);
 
   return (
-    <div className={`navbar ${scroll ? 'navbar-scroll' : ''}`}>
+    <div className="navbar">
       <div className="cart-container">
         <Link to="/cart" className="cart-icon-link">
           <img src={cartItem} alt="Cart" className="cart-icon" />
