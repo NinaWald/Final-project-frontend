@@ -1,9 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Retrieve cart items from localStorage
+const getStoredCartItems = () => {
+  const storedItems = localStorage.getItem('cartItems');
+  return storedItems ? JSON.parse(storedItems) : [];
+};
+
+// Save cart items to localStorage
+const storeCartItems = (items) => {
+  localStorage.setItem('cartItems', JSON.stringify(items));
+};
+
 export const cart = createSlice({
   name: 'cart',
   initialState: {
-    items: [],
+    items: getStoredCartItems(), // Initialize with stored cart items
     discount: 0
   },
   reducers: {
@@ -30,6 +41,7 @@ export const cart = createSlice({
     clearCart: (state) => {
       state.items = [];
       state.discount = 0
+      storeCartItems(state.items); // Clear and store empty cart items
     }
   }
 });
