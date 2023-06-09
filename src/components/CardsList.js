@@ -3,20 +3,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { cart } from 'reducers/cart';
 import { fetchProductsAsync } from 'reducers/products';
+import RoundIconButton from 'components/RoundIconButton';
 import '../cardslist.css';
 
 const CardsList = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.items);
-  const cartItems = useSelector((state) => state.cart.items);
 
   useEffect(() => {
     dispatch(fetchProductsAsync());
   }, [dispatch]);
-
-  const handleRemoveItem = (productId) => {
-    dispatch(cart.actions.removeItem(productId));
-  };
 
   return (
     <div className="cards-grid">
@@ -31,21 +27,18 @@ const CardsList = () => {
             )}
             <p>Price: {product.fields.price}</p>
           </Link>
-
-          <button
-            type="button"
+          <RoundIconButton
+            variant="contained"
+            color="primary"
             disabled={product.fields.inventory === 0}
-            onClick={() => dispatch(cart.actions.addItem({ id: product.sys.id }))}>
-            Add to cart
-          </button>
+            onClick={() => dispatch(cart.actions.addItem({ id: product.sys.id }))} />
 
-          {cartItems.find((item) => item.id === product.sys.id) && (
-            <button
-              type="button"
-              onClick={() => handleRemoveItem({ id: product.sys.id })}>
-              Remove from cart
-            </button>
-          )}
+          <RoundIconButton
+            variant="contained"
+            color="secondary"
+            onClick={() => dispatch(cart.actions.removeItem({ id: product.sys.id }))}
+            isRemove />
+
         </div>
       ))}
     </div>

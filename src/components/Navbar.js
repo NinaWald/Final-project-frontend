@@ -22,12 +22,15 @@ const Navbar = () => {
     setMenuOpen(false);
   }, [location]);
 
+  // Calculate the total quantity of items in the cart
+  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <div className="navbar">
       <div className="cart-container">
         <Link to="/cart" className="cart-icon-link">
           <img src={cartItem} alt="Cart" className="cart-icon" />
-          {cartItems.length > 0 && <span className="cart-item-count">{cartItems.length}</span>}
+          {cartItemCount > 0 && <span className="cart-item-count">{cartItemCount}</span>}
         </Link>
       </div>
 

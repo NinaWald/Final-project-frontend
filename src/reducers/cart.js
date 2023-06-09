@@ -26,6 +26,7 @@ export const cart = createSlice({
       } else {
         state.items.push({ id: action.payload.id, quantity: 1 });
       }
+      storeCartItems(state.items); // Store updated cart items
     },
     removeItem: (state, action) => {
       const existingItem = state.items.find((item) => item.id === action.payload.id);

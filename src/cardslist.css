@@ -36,7 +36,7 @@ a {
     font-size: 16px;
     margin-bottom: 8px;
   }
-  
+  /*
   .cards button {
     background-color: #CD7CB1;
     color: #fff;
@@ -50,6 +50,7 @@ a {
     background-color: #e0d4d4;
     cursor: not-allowed;
   }
+  */
     /* desktop */
   @media (min-width: 668px) {
     .cards-grid {

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { API_URL } from '../utils/urls';
 import { loginUser, setDiscount } from '../reducers/authReducer';
 import { clearCart } from '../reducers/cart';
+import LogoutButton from './LogoutButton';
 import '../registration.css'
 
 const RegistrationPage = () => {
@@ -183,6 +184,7 @@ const RegistrationPage = () => {
           </button>
         </div>
       </form>
+      <LogoutButton />
     </div>
   );
 };

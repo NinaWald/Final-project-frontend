@@ -1,7 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import RoundIconButton from 'components/RoundIconButton';
+import { cart } from 'reducers/cart';
 
 // Styled components
 const Container = styled.div`
@@ -42,6 +44,7 @@ const Category = styled.p`
 
 const ProductPage = () => {
   const { productId } = useParams();
+  const dispatch = useDispatch();
   const products = useSelector((state) => state.products.items);
   const product = products.find((p) => p.sys.id === productId);
 
@@ -58,6 +61,16 @@ const ProductPage = () => {
           alt={product.fields.image.fields.title} />
       )}
       <Price>Price: {product.fields.price}</Price>
+      <RoundIconButton
+        variant="contained"
+        color="primary"
+        onClick={() => dispatch(cart.actions.addItem({ id: product.sys.id }))} />
+      <RoundIconButton
+        variant="contained"
+        color="secondary"
+        onClick={() => dispatch(cart.actions.removeItem({ id: product.sys.id }))}
+        isRemove />
+
       <Description>{product.fields.description}</Description>
       <Category>Category: {product.fields.category}</Category>
     </Container>
