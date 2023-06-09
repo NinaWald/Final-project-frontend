@@ -1,11 +1,11 @@
-/* navbar.css */
+/* mobile */
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 25px;
-  height: 100px;
+  height: 50px;
   background-color: #CD7CB1;
 }
 
@@ -102,6 +102,10 @@
     /* desktop */
     @media (min-width: 668px) {
 
+      .navbar {
+        height: 100px;
+      }
+
       .navbar-logo img {
         display: flex;
         height: 50px;
@@ -130,5 +134,13 @@
 
       .links-container {
         display: flex;
+        margin-right: 50px;
+        gap: 50px;
+      }
+      .link-item {
+        color: #fff;
+      }
+      .cart-icon {
+        margin-left: 40px;
       }
     }
