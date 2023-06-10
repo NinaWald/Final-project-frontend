@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import RoundIconButton from 'components/RoundIconButton';
 import { cart } from 'reducers/cart';
+import BackButton from 'components/BackButton';
 
 // Styled components
 const Container = styled.div`
@@ -73,6 +74,7 @@ const ProductPage = () => {
 
       <Description>{product.fields.description}</Description>
       <Category>Category: {product.fields.category}</Category>
+      <BackButton />
     </Container>
   );
 };

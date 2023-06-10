@@ -2,7 +2,7 @@
 
 .flower-carousel {
     width: 100%;
-    max-width: 700px; /* Adjust the maximum width as needed */
+    max-width: 700px;
     margin: 0 auto;
     height: 500px;
     background-color: #EDD2E4;
@@ -23,9 +23,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 400px;
+    background-color: #EDD2E4;
+  }
 
-    height: 400px; /* Adjust the height as needed */
-    background-color: #EDD2E4; /* Adjust the background color as needed */
+  .carousel-slide a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
   }
   
   .carousel-content {
@@ -41,7 +48,7 @@
   }
   
   .carousel-content h2 {
-    font-size: 24px; /* Adjust the font size as needed */
+    font-size: 24px;
     margin-bottom: 10px;
   }
   
@@ -49,11 +56,11 @@
     max-width: 100%;
     max-height: 100%;
 
-    object-fit: contain; /* Adjust the image fitting style as needed */
+    object-fit: contain;
   }
   
   .carousel-content p {
-    font-size: 16px; /* Adjust the font size as needed */
+    font-size: 16px;
   }
   
   @media only screen and (min-width: 768px) {

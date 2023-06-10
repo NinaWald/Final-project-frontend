@@ -5,6 +5,7 @@ import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import 'react-awesome-slider/dist/styles.css';
 import 'react-awesome-slider/dist/custom-animations/scale-out-animation.css';
 import '../flowercarousel.css';
+import { Link } from 'react-router-dom'
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -18,14 +19,16 @@ const FlowerCarousel = () => {
       cancelOnInteraction={false}
       interval={5000}>
       {Object.values(products).map((product) => (
-        <div key={product.id} className="carousel-slide">
-          <div className="carousel-content">
-            <h2>{product.fields.name}</h2>
-            {product.fields.image && (
-              <img src={product.fields.image.fields.file.url} alt={product.fields.name} />
-            )}
-            <p>Price: {product.fields.price}</p>
-          </div>
+        <div key={product.sys.id} className="carousel-slide">
+          <Link to={`/product/${product.sys.id}`}>
+            <div className="carousel-content">
+              <h2>{product.fields.name}</h2>
+              {product.fields.image && (
+                <img src={product.fields.image.fields.file.url} alt={product.fields.name} />
+              )}
+              <p>Price: {product.fields.price}</p>
+            </div>
+          </Link>
         </div>
       ))}
     </AutoplaySlider>
