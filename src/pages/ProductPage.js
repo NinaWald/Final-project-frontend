@@ -14,6 +14,7 @@ const Container = styled.div`
     margin: 20px;
     padding: 20px;
     border: 1px solid #ccc;
+    margin-top: 120px;
 `;
 
 const Title = styled.h1`
