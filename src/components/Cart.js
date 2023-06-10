@@ -1,5 +1,7 @@
+import { Button } from '@mui/material';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { clearCart } from 'reducers/cart';
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -16,6 +18,12 @@ const Cart = () => {
   }, 0);
 
   const discountedTotalPrice = isAuthenticated ? totalPrice * (1 - discount) : totalPrice;
+
+  const dispatch = useDispatch();
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
 
   return (
     <div>
@@ -38,6 +46,9 @@ const Cart = () => {
             return null;
           })}
           <p>Total Price: {discountedTotalPrice}</p>
+          <Button variant="contained" onClick={handleClearCart}>
+            clear cart
+          </Button>
         </div>
       )}
     </div>

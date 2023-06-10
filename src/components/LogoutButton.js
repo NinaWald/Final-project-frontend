@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
 import { authSlice } from '../reducers/authReducer';
 
 const LogoutButton = () => {
@@ -11,16 +13,16 @@ const LogoutButton = () => {
     setShowPopup(true);
   };
 
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
   return (
     <div>
-      <button type="button" className="btn" onClick={handleLogout}>
+      <Button variant="contained" onClick={handleLogout}>
         Logout
-      </button>
-      {showPopup && (
-        <div className="popup">
-          <p>You are now logged out!</p>
-        </div>
-      )}
+      </Button>
+      <Snackbar open={showPopup} autoHideDuration={3000} onClose={handleClosePopup} message="You are now logged out!" />
     </div>
   );
 };
