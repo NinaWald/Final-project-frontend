@@ -11,6 +11,7 @@ import MemberPage from './pages/MemberPage'
 import NotFound from './pages/NotFound';
 import Navbar from './components/Navbar';
 import CartPage from './pages/CartPage';
+import CheckOut from './pages/CheckOut';
 
 const reducer = combineReducers({
   cart: cart.reducer,
@@ -31,6 +32,7 @@ export const App = () => {
             <Route path="/product/:productId" element={<ProductPage />} />
             <Route path="/member" element={<MemberPage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/checkout" element={<CheckOut />} />
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<Navigate to="/404" />} />
           </Routes>

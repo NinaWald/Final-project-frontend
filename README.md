@@ -26,4 +26,6 @@ Video by "https://pixabay.com/users/monk_vadim-23253177/?utm_source=link-attribu
 
 "https://www.flaticon.com/free-icons/bouquet" title="bouquet icons">Bouquet icons created by Eucalyp - Flaticon
 
+<div> Icons made by ="https://www.flaticon.com/authors/freepik" title="Freepik"> Freepik </a> from ="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+
 https://final-backend-sl33jvdfkq-no.a.run.app/

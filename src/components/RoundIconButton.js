@@ -5,7 +5,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
 const StyledButton = styled(Button)`
-  background-color: #CD7CB1;
+  background-color: #669999;
   color: #fff;
   border-radius: 50%;
   padding: 4px;
@@ -19,7 +19,7 @@ const StyledButton = styled(Button)`
   margin: 0;
 
   &:hover {
-    background-color: lightpink;
+    background-color: #DDDDBB;
   }
 `;
 

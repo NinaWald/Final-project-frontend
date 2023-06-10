@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import '../navbar.css';
-import cartItem from '../assets/shopping-bag.png';
+import cartItem from '../assets/grey-cart.png';
 
 const Navbar = () => {
   const cartItems = useSelector((state) => state.cart.items);

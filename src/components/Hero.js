@@ -5,10 +5,15 @@ import heroVideo from '../assets/hero.video.mp4';
 const HeroContainer = styled.div`
   width: 100%;
   position: relative;
+  z-index: -1;
 `;
 
 const HeroVideo = styled.video`
   width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 `;
 
 const CenteredText = styled.h1`

@@ -49,10 +49,10 @@ input::placeholder {
   }
 
   button[type='submit'] {
-    background-color: transparent;
-    border-color: #CD7CB1;
+    background-color:#c9c9c0;
+    border-color: #669999;
     border: 3px solid;
-    color: #CD7CB1;
+    color: #669999;
     font-size: 1.2rem;
     border-radius: 10px;
     padding: 12px 30px;
