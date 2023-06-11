@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import ProductPage from 'pages/ProductPage';
 import { cart } from './reducers/cart';
 import { authSlice } from './reducers/authReducer';
@@ -21,12 +21,23 @@ const reducer = combineReducers({
 
 const store = configureStore({ reducer })
 
+const ScrollToTop = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  return null;
+};
+
 export const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Navbar />
         <div className="outer-wrapper">
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/product/:productId" element={<ProductPage />} />
@@ -41,29 +52,3 @@ export const App = () => {
     </Provider>
   );
 };
-
-/*
-      // <Cart />
-      // <CartProducts />
-          <Provider store={store}>
-      <Router>
-        <Hero />
-        <Routes>
-          <Route path="/" element={<div><Hero /><CardsList /></div>} />
-          <nav>
-            <Link to="/member">Member Page</Link>
-          </nav>
-          <Route path="/member" element={<MemberPage />} />
-        </Routes>
-      </Router>
-    </Provider>
-          <FlowerCarousel />
-            // Dispatching actions
-  const addToCart = (product) => {
-    store.dispatch(cartActions.addItem(product));
-  };
-
-  const loginUser = (username, accessToken) => {
-    store.dispatch(authActions.loginUser({ username, accessToken }));
-  };
-*/

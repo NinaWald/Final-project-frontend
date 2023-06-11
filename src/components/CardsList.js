@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { cart } from 'reducers/cart';
 import { fetchProductsAsync } from 'reducers/products';
-import RoundIconButton from 'components/RoundIconButton';
+import CartItem from 'components/CartItemButton';
 import '../cardslist.css';
 
 const CardsList = () => {
@@ -27,18 +26,7 @@ const CardsList = () => {
             )}
             <p>Price: {product.fields.price}</p>
           </Link>
-          <RoundIconButton
-            variant="contained"
-            color="primary"
-            disabled={product.fields.inventory === 0}
-            onClick={() => dispatch(cart.actions.addItem({ id: product.sys.id }))} />
-
-          <RoundIconButton
-            variant="contained"
-            color="secondary"
-            onClick={() => dispatch(cart.actions.removeItem({ id: product.sys.id }))}
-            isRemove />
-
+          <CartItem productId={product.sys.id} />
         </div>
       ))}
     </div>

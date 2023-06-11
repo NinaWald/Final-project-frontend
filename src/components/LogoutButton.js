@@ -19,7 +19,7 @@ const LogoutButton = () => {
 
   return (
     <div>
-      <Button variant="contained" onClick={handleLogout}>
+      <Button variant="contained" onClick={handleLogout} style={{ backgroundColor: '#669999' }}>
         Logout
       </Button>
       <Snackbar open={showPopup} autoHideDuration={3000} onClose={handleClosePopup} message="You are now logged out!" />

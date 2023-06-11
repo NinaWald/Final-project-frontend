@@ -46,7 +46,7 @@ const Cart = () => {
             return null;
           })}
           <p>Total Price: {discountedTotalPrice}</p>
-          <Button variant="contained" onClick={handleClearCart}>
+          <Button variant="contained" onClick={handleClearCart} style={{ backgroundColor: '#669999' }}>
             clear cart
           </Button>
         </div>
