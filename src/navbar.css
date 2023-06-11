@@ -28,13 +28,15 @@
   margin-right: 10px;
 }
 
-.cart-icon-link {
+.cart-icon-link, user-icon-link {
   position: relative;
+  
 }
 
-.cart-icon {
+.cart-icon, .user-icon {
   width: 40px;
   height: 40px;
+  margin-left: 20px;
 }
 
 .cart-item-count {

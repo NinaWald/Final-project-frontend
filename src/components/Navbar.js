@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import '../navbar.css';
 import cartItem from '../assets/grey-cart.png';
+import userIcon from '../assets/user.png'
 
 const Navbar = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -31,6 +32,9 @@ const Navbar = () => {
         <Link to="/cart" className="cart-icon-link">
           <img src={cartItem} alt="Cart" className="cart-icon" />
           {cartItemCount > 0 && <span className="cart-item-count">{cartItemCount}</span>}
+        </Link>
+        <Link to="/member" className="user-icon-link">
+          <img src={userIcon} alt="User" className="user-icon" />
         </Link>
       </div>
 

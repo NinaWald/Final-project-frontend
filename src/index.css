@@ -13,3 +13,13 @@ code {
   font-family:'Times New Roman', Times, serif
 }
 
+.outer-wrapper {
+  padding: 0 20px 0 20px ;
+}
+
+  /* desktop */
+  @media (min-width: 668px) {
+    .outer-wrapper {
+      padding: 0 50px 0 50px ;
+    }
+  }

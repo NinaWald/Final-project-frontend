@@ -1,19 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import heroVideo from '../assets/hero.video.mp4';
+import mobileVideo from '../assets/hero.mobile.girl.mp4';
 
 const HeroContainer = styled.div`
   width: 100%;
   position: relative;
-  z-index: -1;
-`;
 
-const HeroVideo = styled.video`
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  .hero-video {
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .mobile-video {
+    display: none;
+  }
+
+  @media (max-width: 668px) {
+    .hero-video {
+      display: none;
+    }
+
+    .mobile-video {
+    display: flex;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    }
+  }
 `;
 
 const CenteredText = styled.h1`
@@ -43,10 +62,14 @@ const Hero = () => {
 
   return (
     <HeroContainer>
-      <HeroVideo autoPlay loop muted>
+      <video className="hero-video" autoPlay loop muted>
         <source src={heroVideo} type="video/mp4" />
         Your browser does not support the video tag.
-      </HeroVideo>
+      </video>
+      <video className="mobile-video" autoPlay loop muted>
+        <source src={mobileVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <CenteredText loggedIn={loggedIn}>
         De la Fleur {'\n'}
         FlowerShop
@@ -56,3 +79,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
