@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import heroVideo from '../assets/hero.video.mp4';
 import mobileVideo from '../assets/hero.mobile.girl.mp4';
+import logoImage from '../assets/florist.logo.jpg';
 
 const HeroContainer = styled.div`
   width: 100%;
@@ -35,16 +36,18 @@ const HeroContainer = styled.div`
   }
 `;
 
-const CenteredText = styled.h1`
+const LogoImage = styled.img`
+  opacity: 0.7;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+`;
+
+const CenteredText = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #ffffff;
-  font-size: 50px;
-  opacity: ${(props) => (props.loggedIn ? 1 : 0)};
-  transition: opacity 0.5s;
-  white-space: pre-line;
   text-align: center;
 `;
 
@@ -71,8 +74,7 @@ const Hero = () => {
         Your browser does not support the video tag.
       </video>
       <CenteredText loggedIn={loggedIn}>
-        De la Fleur {'\n'}
-        FlowerShop
+        <LogoImage src={logoImage} alt="Logo" />
       </CenteredText>
     </HeroContainer>
   );

@@ -66,7 +66,7 @@
   top: 60%;
   right: 0;
   height: 350px;
-  background-color:#DDDDBB;
+  background-color:#cdcdc3;
   padding-top: 30px;
   padding-left: 0;
   align-items: center;
@@ -90,7 +90,7 @@
   width: 30px;
   height: 5px;
   margin-bottom: 5px;
-  background-color: #e4e4de;
+  background-color:#a1a19b;
   z-index: 105;
 }
   
@@ -98,6 +98,8 @@
     margin-right: 0;
     margin-bottom: 10px;
     text-align: right;
+    padding: 10px;
+
   }
   .navbar-links li:last-child {
     margin-bottom: 0;
@@ -106,6 +108,7 @@
   .navbar-links-open a {
     color:#004D00;
     font-size: 2em;
+    text-decoration: none;
   }
 
 
@@ -113,7 +116,8 @@
     @media (min-width: 668px) {
 
       .navbar {
-        height: 60px;
+        height: 50px;
+        justify-content: space-around;
       }
 
       .navbar-logo img {
@@ -145,10 +149,12 @@
       .links-container {
         display: flex;
         margin-right: 50px;
-        gap: 50px;
+        gap: 10px
       }
       .link-item {
-        color: #fff;
+        color:#a1a19b;
+        text-decoration: none;
+        font-size: larger;
       }
       .cart-icon {
         margin-left: 40px;
