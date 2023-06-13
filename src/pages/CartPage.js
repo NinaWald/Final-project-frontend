@@ -9,13 +9,9 @@ const CartPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 120px;
+  margin-top: 150px;
   background-color: whitesmoke;
   height: 500px;
-`;
-
-const Title = styled.h2`
-  margin-bottom: 20px;
 `;
 
 const StyledButton = styled(Button)`
@@ -28,7 +24,6 @@ const StyledButton = styled(Button)`
 const CartPage = () => {
   return (
     <CartPageContainer>
-      <Title>Cart Page</Title>
       <Cart />
       <StyledButton component={Link} to="/checkout" variant="contained" color="primary">
         Go to Checkout
