@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
@@ -12,6 +12,7 @@ import NotFound from './pages/NotFound';
 import Navbar from './components/Navbar';
 import CartPage from './pages/CartPage';
 import CheckOut from './pages/CheckOut';
+import PopupMessage from './components/PopupMessage';
 
 const reducer = combineReducers({
   cart: cart.reducer,
@@ -32,6 +33,11 @@ const ScrollToTop = () => {
 };
 
 export const App = () => {
+  const [showPopup, setShowPopup] = useState(true);
+
+  const handlePopupClose = () => {
+    setShowPopup(false);
+  };
   return (
     <Provider store={store}>
       <BrowserRouter>
@@ -47,6 +53,7 @@ export const App = () => {
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<Navigate to="/404" />} />
           </Routes>
+          {showPopup && <PopupMessage onClose={handlePopupClose} />}
         </div>
       </BrowserRouter>
     </Provider>

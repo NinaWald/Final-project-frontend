@@ -31,3 +31,5 @@ Icons made by ="https://www.flaticon.com/authors/freepik" title="Freepik"> Freep
 "https://www.flaticon.com/free-icons/user" title="user icons">User icons created by Freepik - Flaticon
 
 https://final-backend-sl33jvdfkq-no.a.run.app/
+
+https://ninaw-final-project.netlify.app/

@@ -92,15 +92,15 @@ const RegistrationPage = () => {
         const data = await loginResponse.json();
         const { username: responseUsername, accessToken, discount } = data.response;
 
+        setSubmitted(true);
+        setError(false);
+        setUserName(responseUsername);
+        setShowLoginMessage(true);
+
         dispatch(loginUser(responseUsername, accessToken));
         dispatch(setDiscount(discount));
         dispatch(clearCart());
         dispatch(setUserId(data.response.id));
-
-        setSubmitted(true);
-        setError(false);
-        setUserName(responseUsername);
-        setShowLoginMessage(true); // Add this line
       } else {
         setError(true);
         setErrorMessage('Login failed. Please check your credentials and try again.');
@@ -130,9 +130,10 @@ const RegistrationPage = () => {
   };
 
   const handleLogout = () => {
-    dispatch(authSlice.actions.logoutUser());
+    console.log('handleLogout called');
     setShowLoginMessage(false);
-    setShowLogoutMessage(true); // Add this line
+    dispatch(authSlice.actions.logoutUser());
+    setShowLogoutMessage(true);
   };
   /*
   const successMessage = () => {
@@ -160,17 +161,13 @@ const RegistrationPage = () => {
             <h1>{errorMessage}</h1>
           </div>
         )}
-        {showLoginMessage && !showLogoutMessage && (
+        {showLoginMessage && (
           <div className="success">
             <h1>Welcome, {username}!</h1>
-            <LogoutButton
-              onLogout={handleLogout}
-              showSuccessMessage={showLoginMessage}
-              showLogoutMessage={showLogoutMessage} />
+            <LogoutButton onLogout={handleLogout} />
           </div>
         )}
-
-        {showLogoutMessage && (
+        {showLogoutMessage && !showLoginMessage && (
           <div className="success">
             <h1>User successfully logged out!</h1>
           </div>
@@ -223,7 +220,6 @@ const RegistrationPage = () => {
           </button>
         </div>
       </form>
-      <LogoutButton />
     </div>
   );
 };
