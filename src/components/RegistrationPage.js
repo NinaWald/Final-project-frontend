@@ -206,17 +206,23 @@ const RegistrationPage = () => {
               placeholder="Password"
               required />
           </label>
-          <label className="label" htmlFor="registeredMember">
-            <input
-              id="registeredMember"
-              onChange={() => setIsRegisteredMember(!isRegisteredMember)}
-              className="input"
-              type="checkbox"
-              checked={isRegisteredMember} />
-          Already a registered member
+          <label className="toggle-switch-label" htmlFor="registeredMember">
+            <div className="toggle-switch-container">
+              <input
+                id="registeredMember"
+                onChange={() => setIsRegisteredMember(!isRegisteredMember)}
+                className="toggle-switch-input"
+                type="checkbox"
+                checked={isRegisteredMember} />
+              <span className="toggle-switch-slider" />
+              <span className="toggle-switch-text">
+                {isRegisteredMember ? 'Log In' : 'Register'}
+              </span>
+            </div>
           </label>
-          <button className="btn" type="submit">
-            {isRegisteredMember ? 'Log In' : 'Register'}
+
+          <button className="button" type="submit">
+            {isRegisteredMember ? 'Submit' : 'Submit'}
           </button>
         </div>
       </form>
