@@ -4,33 +4,57 @@ import { useParams, Link } from 'react-router-dom';
 import { fetchProductsAsync } from 'reducers/products';
 import styled from 'styled-components';
 import CartItem from 'components/CartItemButton';
+import BackButton from './BackButton';
+
+const CategoryContainer = styled.div`
+  display: block;
+  flex-direction: column;
+  margin-top: 150px;
+  `;
 
 const Container = styled.div`
-    margin-top: 150px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 16px; /* spacing between cards */
+
+    @media (min-width: 668px) {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+      margin-left: 50px;
+      margin-right: 50px;
+    }
 `;
 
 const ProductCard = styled.div`
-  flex-basis: 200px;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    border: 1px solid #669999;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #dfdfd3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 `;
 
 const Image = styled.img`
-  cursor: pointer;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
+    cursor: pointer;
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 8px;
 `;
 
 const Heading = styled.h1`
   text-align: center;
+  border: 1px solid #669999;
+    border-radius: 4px;
+    
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+
 `;
 
 const CategoryProducts = () => {
@@ -44,23 +68,26 @@ const CategoryProducts = () => {
   }, [dispatch]);
 
   return (
-    <Container>
+    <CategoryContainer>
       <Heading>{urlCategory}</Heading>
-      {filteredProducts.map((product) => (
-        <ProductCard key={product.sys.id}>
-          <Link to={`/product/${product.sys.id}`}>
-            <h2>{product.fields.name}</h2>
-            {product.fields.image && (
-              <Image
-                src={product.fields.image.fields.file.url}
-                alt={product.fields.image.fields.title} />
-            )}
-            <p>Price: {product.fields.price}</p>
-          </Link>
-          <CartItem productId={product.sys.id} />
-        </ProductCard>
-      ))}
-    </Container>
+      <Container>
+        {filteredProducts.map((product) => (
+          <ProductCard key={product.sys.id}>
+            <StyledLink to={`/product/${product.sys.id}`}>
+              <h2>{product.fields.name}</h2>
+              {product.fields.image && (
+                <Image
+                  src={product.fields.image.fields.file.url}
+                  alt={product.fields.image.fields.title} />
+              )}
+              <p>Price: {product.fields.price}</p>
+            </StyledLink>
+            <CartItem productId={product.sys.id} />
+          </ProductCard>
+        ))}
+      </Container>
+      <BackButton />
+    </CategoryContainer>
   );
 };
 

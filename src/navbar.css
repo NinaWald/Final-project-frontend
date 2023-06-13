@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -118,6 +118,7 @@
       .navbar {
         height: 50px;
         justify-content: space-around;
+        width: 100%;
       }
 
       .navbar-logo img {

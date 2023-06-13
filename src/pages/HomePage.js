@@ -4,6 +4,7 @@ import FlowerCarousel from '../components/FlowerCarousel';
 import CardsList from '../components/CardsList';
 import Hero from '../components/Hero';
 import CategorySelection from '../components/CategorySelection';
+import Footer from '../components/Footer';
 
 // import Hero from './components/Hero'
 
@@ -15,6 +16,7 @@ export const HomePage = () => {
       <FlowerCarousel />
       <CardsList />
       <RegistrationPage />
+      <Footer />
     </div>
   );
 };

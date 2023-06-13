@@ -8,34 +8,43 @@ import Modern from '../assets/flower category modern1.png';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-
-  @media (max-width: 668px) {
-    flex-direction: row;
-  }
 `;
 
-const Header = styled.h2`
+const HeaderContainer = styled.div`
   margin-bottom: 10px;
 
   @media (max-width: 668px) {
-   display: none;
+    display: none;
+  }
+`;
+
+const ImageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 668px) {
+    flex-direction: row;
   }
 `;
 
 const Image = styled.img`
   cursor: pointer;
+  display: flex;
+  align-items: center;
   width: 258px;
   height: 256px;
+  margin: 20px;
   border-radius: 130px;
   border: 5px solid #669999;
 
   @media (max-width: 668px) {
     display: flex;
-    align-items: center;
-    width: 70%;
-    height: auto;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
     margin: 50px;
   }
 `;
@@ -49,8 +58,10 @@ const CategorySelection = () => {
 
   return (
     <Container>
-      <Header>Browse Categories</Header>
-      <div>
+      <HeaderContainer>
+        <h2>Browse Categories</h2>
+      </HeaderContainer>
+      <ImageWrapper>
         <Image
           src={Classic}
           alt="Classic Collection"
@@ -63,7 +74,7 @@ const CategorySelection = () => {
           src={Romantic}
           alt="Romantic Collection"
           onClick={() => handleClick('Romantic Collection')} />
-      </div>
+      </ImageWrapper>
     </Container>
   );
 };
