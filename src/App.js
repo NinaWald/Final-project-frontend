@@ -10,6 +10,7 @@ import { HomePage } from './pages/HomePage';
 import MemberPage from './pages/MemberPage'
 import NotFound from './pages/NotFound';
 import Navbar from './components/Navbar';
+import CategoryProducts from './components/CategoryProducts';
 import CartPage from './pages/CartPage';
 import CheckOut from './pages/CheckOut';
 import PopupMessage from './components/PopupMessage';
@@ -49,6 +50,7 @@ export const App = () => {
             <Route path="/product/:productId" element={<ProductPage />} />
             <Route path="/member" element={<MemberPage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/category/:category" element={<CategoryProducts />} />
             <Route path="/checkout" element={<CheckOut />} />
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<Navigate to="/404" />} />
