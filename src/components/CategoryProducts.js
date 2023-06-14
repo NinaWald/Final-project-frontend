@@ -15,9 +15,13 @@ const CategoryContainer = styled.div`
 const Container = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
-    gap: 16px; /* spacing between cards */
+    gap: 5px; /* spacing between cards */
 
-    @media (min-width: 668px) {
+    @media (min-width: 668px) and (max-width: 1060px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 1061px) {
       grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
       margin-left: 50px;
       margin-right: 50px;
@@ -34,6 +38,30 @@ const ProductCard = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
+
+    @media (min-width: 668px) and (max-width: 1060px) {
+      border: 1px solid #669999;
+      border-radius: 4px;
+      padding: 5px;
+      margin: 5px;
+      background-color: #dfdfd3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: 1061px) {
+      border: 1px solid #669999;
+      border-radius: 4px;
+      padding: 15px;
+      margin: 15px;
+      background-color: #dfdfd3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 `;
 
 const Image = styled.img`
