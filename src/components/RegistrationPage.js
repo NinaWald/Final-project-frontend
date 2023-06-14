@@ -4,6 +4,7 @@ import { API_URL } from '../utils/urls';
 import { loginUser, setDiscount, setUserId, logoutUser } from '../reducers/authReducer';
 import { clearCart } from '../reducers/cart';
 import LogoutButton from './LogoutButton';
+import DeleteUser from './DeleteUser';
 import '../registration.css'
 import Loading from './Loading';
 
@@ -155,6 +156,7 @@ const RegistrationPage = () => {
               <>
                 <h1>Welcome, {username}!</h1>
                 <LogoutButton onLogout={handleLogout} />
+                <DeleteUser />
               </>
             ) : (
               <h1>User successfully logged out!</h1>
@@ -162,6 +164,7 @@ const RegistrationPage = () => {
           </div>
         ) : null}
       </div>
+
       <form className="registration" onSubmit={handleSubmit}>
         <div className="regis-content">
           <label className="label" htmlFor="nameInput">
