@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { API_URL } from '../utils/urls';
-import { loginUser, setDiscount, setUserId, authSlice } from '../reducers/authReducer';
+import { loginUser, setDiscount, setUserId, logoutUser } from '../reducers/authReducer';
 import { clearCart } from '../reducers/cart';
 import LogoutButton from './LogoutButton';
 import '../registration.css'
 import Loading from './Loading';
 
 const RegistrationPage = () => {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.auth.userId)
+
   const [username, setUserName] = useState('');
   const [useremail, setUserEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,8 +20,6 @@ const RegistrationPage = () => {
   const [error, setError] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [showLoginMessage, setShowLoginMessage] = useState(false);
-  const [showLogoutMessage, setShowLogoutMessage] = useState(false);
 
   useEffect(() => {
     setUserName('');
@@ -71,8 +72,6 @@ const RegistrationPage = () => {
     }
   };
 
-  const dispatch = useDispatch();
-
   const handleLogin = async () => {
     try {
       setLoading(true);
@@ -95,9 +94,11 @@ const RegistrationPage = () => {
         setSubmitted(true);
         setError(false);
         setUserName(responseUsername);
-        setShowLoginMessage(true);
 
-        dispatch(loginUser(responseUsername, accessToken));
+        dispatch(
+          loginUser(responseUsername, accessToken, data.response.id)
+        );
+
         dispatch(setDiscount(discount));
         dispatch(clearCart());
         dispatch(setUserId(data.response.id));
@@ -130,25 +131,12 @@ const RegistrationPage = () => {
   };
 
   const handleLogout = () => {
-    console.log('handleLogout called');
-    setShowLoginMessage(false);
-    dispatch(authSlice.actions.logoutUser());
-    setShowLogoutMessage(true);
+    dispatch(logoutUser());
+    setUserName('');
   };
-  /*
-  const successMessage = () => {
-    if (isLoggedIn) {
-      return (
-        <div className="success" style={{ display: isLoggedIn ? '' : 'none' }}>
-          <h1>Welcome, {username}!</h1>
-          <LogoutButton onLogout={handleLogout} />
-        </div>
-      );
-    }
-    return null;
-  };
-*/
+
   return (
+
     <div className="form">
       {isLoading && <Loading />}
       <div>
@@ -161,19 +149,19 @@ const RegistrationPage = () => {
             <h1>{errorMessage}</h1>
           </div>
         )}
-        {showLoginMessage && (
+        {isLoggedIn !== null ? (
           <div className="success">
-            <h1>Welcome, {username}!</h1>
-            <LogoutButton onLogout={handleLogout} />
+            {isLoggedIn ? (
+              <>
+                <h1>Welcome, {username}!</h1>
+                <LogoutButton onLogout={handleLogout} />
+              </>
+            ) : (
+              <h1>User successfully logged out!</h1>
+            )}
           </div>
-        )}
-        {showLogoutMessage && !showLoginMessage && (
-          <div className="success">
-            <h1>User successfully logged out!</h1>
-          </div>
-        )}
+        ) : null}
       </div>
-
       <form className="registration" onSubmit={handleSubmit}>
         <div className="regis-content">
           <label className="label" htmlFor="nameInput">
@@ -231,3 +219,17 @@ const RegistrationPage = () => {
 };
 
 export default RegistrationPage;
+
+/*
+  const successMessage = () => {
+    if (isLoggedIn) {
+      return (
+        <div className="success" style={{ display: isLoggedIn ? '' : 'none' }}>
+          <h1>Welcome, {username}!</h1>
+          <LogoutButton onLogout={handleLogout} />
+        </div>
+      );
+    }
+    return null;
+  };
+*/
