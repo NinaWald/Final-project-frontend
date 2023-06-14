@@ -31,7 +31,7 @@ const Container = styled.div`
 const ProductCard = styled.div`
     border: 1px solid #669999;
     border-radius: 4px;
-    padding: 16px;
+    padding: 5px;
     margin-bottom: 16px;
     background-color: #dfdfd3;
     display: flex;
