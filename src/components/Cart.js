@@ -2,6 +2,14 @@ import { Button } from '@mui/material';
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart } from 'reducers/cart';
+import styled from 'styled-components'
+
+const ProductImage = styled.img`
+  width: 80px;
+  height: 90px;
+  object-fit: cover;
+  margin-right: 10px;
+`;
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -37,9 +45,14 @@ const Cart = () => {
             if (product) {
               return (
                 <div key={item.id}>
-                  <h3>{product.fields.name}</h3>
-                  <p>Price: {product.fields.price}</p>
-                  <p>Quantity: {item.quantity}</p>
+                  <ProductImage
+                    src={product.fields.image.fields.file.url}
+                    alt={product.fields.image.fields.title} />
+                  <div>
+                    <h3>{product.fields.name}</h3>
+                    <p>Price: {product.fields.price}</p>
+                    <p>Quantity: {item.quantity}</p>
+                  </div>
                 </div>
               );
             }

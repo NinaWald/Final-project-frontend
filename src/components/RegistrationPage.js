@@ -140,7 +140,7 @@ const RegistrationPage = () => {
     <div className="form">
       {isLoading && <Loading />}
       <div>
-        <h1>User Registration</h1>
+        <h1>Get 10% discount! Become a member today!</h1>
       </div>
 
       <div className="messages">

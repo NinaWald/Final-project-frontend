@@ -13,25 +13,28 @@ const FlowerCarousel = () => {
   const products = useSelector((state) => state.products.items);
 
   return (
-    <AutoplaySlider
-      className="flower-carousel"
-      play
-      cancelOnInteraction={false}
-      interval={5000}>
-      {Object.values(products).map((product) => (
-        <div key={product.sys.id} className="carousel-slide">
-          <Link to={`/product/${product.sys.id}`}>
-            <div className="carousel-content">
-              <h2>{product.fields.name}</h2>
-              {product.fields.image && (
-                <img src={product.fields.image.fields.file.url} alt={product.fields.name} />
-              )}
-              <p>Price: {product.fields.price}</p>
-            </div>
-          </Link>
-        </div>
-      ))}
-    </AutoplaySlider>
+    <div className="carousel-container">
+      <h2 className="carousel-header">Featured Bouquets</h2>
+      <AutoplaySlider
+        className="flower-carousel"
+        play
+        cancelOnInteraction={false}
+        interval={5000}>
+        {Object.values(products).map((product) => (
+          <div key={product.sys.id} className="carousel-slide">
+            <Link to={`/product/${product.sys.id}`}>
+              <div className="carousel-content">
+                <h2>{product.fields.name}</h2>
+                {product.fields.image && (
+                  <img src={product.fields.image.fields.file.url} alt={product.fields.name} />
+                )}
+                <p>Price: {product.fields.price}</p>
+              </div>
+            </Link>
+          </div>
+        ))}
+      </AutoplaySlider>
+    </div>
   );
 };
 

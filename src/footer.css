@@ -60,6 +60,9 @@
     width: 40px;
     margin-left: 25px;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 10px;
+    }
+  h1 {
+    font-size: 1.2rem;
   }
  

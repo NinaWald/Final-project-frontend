@@ -14,10 +14,10 @@ const Container = styled.div`
 `;
 
 const HeaderContainer = styled.div`
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 
   @media (max-width: 668px) {
-    display: none;
+    display: flex;
   }
 `;
 
@@ -45,7 +45,8 @@ const Image = styled.img`
     justify-content: center;
     width: 180px;
     height: 180px;
-    margin: 50px;
+    margin: 10px;
+    border-radius: 0;
   }
 `;
 

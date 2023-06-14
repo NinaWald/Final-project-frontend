@@ -28,6 +28,7 @@ const Footer = () => {
           <a href="#"><img src={instagramIcon} alt="Instagram" /></a>
           <a href="#"><img src={youtubeIcon} alt="YouTube" /></a>
         </div>
+        <h1>© 2023 Farm Fresh Flowers</h1>
       </div>
     </footer>
   );
