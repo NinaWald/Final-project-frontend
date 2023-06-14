@@ -74,6 +74,11 @@ input::placeholder {
     transition: all 0.3s ease-in-out;
 
   }
+
+  .toggle-container {
+    margin-top: 20px;
+    color:#669999;
+  }
   
   .toggle-switch-label {
     display: flex;
@@ -84,7 +89,7 @@ input::placeholder {
     cursor: pointer;
     color: rgb(88, 94, 94);
     margin-top: 10px;
-    width: 300px;
+    width: 280px;
   }
 
   .toggle-switch-container {
@@ -103,7 +108,7 @@ input::placeholder {
     right: 0;
     bottom: 0;
     width: 54px;
-    background-color: #c4e8df;
+    background-color: #6ea295;
     border-radius: 34px;
     transition: background-color 0.4s;
   }
@@ -128,10 +133,14 @@ input::placeholder {
   }
   
   .toggle-switch-input:checked + .toggle-switch-slider {
-    background-color: #2196f3;
+    background-color: #76abd6;
   }
   
   .toggle-switch-input:checked + .toggle-switch-slider:before {
     transform: translateX(24px);
+  }
+
+  .span {
+    background-color: white;
   }
   

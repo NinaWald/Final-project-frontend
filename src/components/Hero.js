@@ -33,6 +33,13 @@ const HeroContainer = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    }
+
+    .mobile-video video {
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 `;

@@ -197,6 +197,9 @@ const RegistrationPage = () => {
               placeholder="Password"
               required />
           </label>
+          <div className="toggle-container">
+            <h1>Register/Login</h1>
+          </div>
           <label className="toggle-switch-label" htmlFor="registeredMember">
             <div className="toggle-switch-container">
               <input
