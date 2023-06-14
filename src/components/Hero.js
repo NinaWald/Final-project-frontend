@@ -28,7 +28,7 @@ const HeroContainer = styled.div`
     .mobile-video {
     display: flex;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 70px;
     top: 0;
     left: 0;
     right: 0;

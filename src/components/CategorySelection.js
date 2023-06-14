@@ -28,6 +28,8 @@ const ImageWrapper = styled.div`
   @media (min-width: 668px) {
     flex-direction: row;
   }
+
+    
 `;
 
 const Image = styled.img`
@@ -48,6 +50,16 @@ const Image = styled.img`
     margin: 10px;
     border-radius: 0;
   }
+
+   /* tablet */
+   @media (min-width: 668px) and (max-width: 1060px) {
+    display: flex;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    margin: 10px;
+    border-radius: 130px;
+    }
 `;
 
 const CategorySelection = () => {
