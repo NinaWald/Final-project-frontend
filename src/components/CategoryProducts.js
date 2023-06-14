@@ -7,10 +7,18 @@ import CartItem from 'components/CartItemButton';
 import BackButton from './BackButton';
 
 const CategoryContainer = styled.div`
-  display: block;
+  display: flex;
   flex-direction: column;
   margin-top: 150px;
+  width: 100%;
+  height: 500px;
+  
   `;
+
+const HeadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`
 
 const Container = styled.div`
     display: grid;
@@ -76,6 +84,8 @@ const Heading = styled.h1`
   text-align: center;
   border: 1px solid #669999;
     border-radius: 4px;
+    padding: 40px;
+    margin-bottom: 50px;
     
 `;
 
@@ -84,6 +94,11 @@ const StyledLink = styled(Link)`
   color: inherit;
 
 `;
+
+const ButtonContainer = styled.button`
+  display: flex;
+  justify-content: center;
+`
 
 const CategoryProducts = () => {
   const dispatch = useDispatch();
@@ -97,7 +112,9 @@ const CategoryProducts = () => {
 
   return (
     <CategoryContainer>
-      <Heading>{urlCategory}</Heading>
+      <HeadingContainer>
+        <Heading>{urlCategory}</Heading>
+      </HeadingContainer>
       <Container>
         {filteredProducts.map((product) => (
           <ProductCard key={product.sys.id}>
@@ -114,7 +131,9 @@ const CategoryProducts = () => {
           </ProductCard>
         ))}
       </Container>
-      <BackButton />
+      <ButtonContainer>
+        <BackButton />
+      </ButtonContainer>
     </CategoryContainer>
   );
 };
