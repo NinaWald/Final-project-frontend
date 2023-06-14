@@ -7,14 +7,24 @@ import logoImage from '../assets/florist.logo.jpg';
 const HeroContainer = styled.div`
   width: 100%;
   position: relative;
+  display: flex;
+  justify-content: center;
+ 
 
   .hero-video {
-    width: 100%;
+    width: 80%;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    padding: 0 50px 0 50px ;
+
+    @media (min-width: 668px) and (max-width: 1060px) {
+      width: 100%;
   }
+  }
+
+ 
 
   .mobile-video {
     display: none;
@@ -36,11 +46,6 @@ const HeroContainer = styled.div`
     margin-left: 0;
     margin-right: 0;
     }
-
-    .mobile-video video {
-      margin-left: 0;
-      margin-right: 0;
-    }
   }
 `;
 
@@ -49,6 +54,12 @@ const LogoImage = styled.img`
   border-radius: 50%;
   width: 300px;
   height: 300px;
+
+  @media (min-width: 668px) and (max-width: 1060px) {
+ 
+  width: 200px;
+  height: 200px;
+  }
 `;
 
 const CenteredText = styled.div`
@@ -57,6 +68,9 @@ const CenteredText = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+
+  
+  
 `;
 
 const Hero = () => {

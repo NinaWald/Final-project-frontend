@@ -10,6 +10,8 @@ const DeleteUser = () => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.userId);
+  const accessToken = useSelector((state) => state.auth.accessToken);
+  // Get the accessToken from the Redux store
 
   const handleDeleteUser = async () => {
     setLoading(true);
@@ -19,7 +21,8 @@ const DeleteUser = () => {
       const deleteResponse = await fetch(API_URL(`delete/${userId}`), {
         method: 'DELETE',
         headers: {
-          'Content-type': 'application/json'
+          'Content-type': 'application/json',
+          Authorization: `Bearer ${accessToken}`
         }
       });
 

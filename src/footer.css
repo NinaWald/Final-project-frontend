@@ -1,6 +1,7 @@
 .footer {
-    padding: 40px;
+    padding: 20px;
     color: white;
+    
   }
   
   .footer-content {
@@ -28,11 +29,11 @@
     
   }
 
-  .links-container {
+  .footer-container {
     margin: 0;
   }
   
-  .links-container ul {
+  .footer-container ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -46,11 +47,11 @@
     
   }
   
-  .links-container li {
+  .footer-container li {
     margin-bottom: 10px;
   }
   
-  .links-container a {
+  .footer-container a {
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
@@ -61,8 +62,10 @@
     margin-left: 25px;
     background-color: white;
     border-radius: 10px;
+    
     }
-  h1 {
+  h2 {
     font-size: 1.2rem;
+    margin-bottom: 50px;
   }
  

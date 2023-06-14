@@ -69,8 +69,8 @@
   @media (min-width: 1061px) {
     .cards-grid {
       grid-template-columns: repeat(4, 1fr);
-      margin-left: 100px;
-      margin-right: 100px;
+      margin-left: 150px;
+      margin-right: 150px;
       gap: 10px
     }
 

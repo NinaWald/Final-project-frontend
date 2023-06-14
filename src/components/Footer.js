@@ -13,7 +13,7 @@ const Footer = () => {
           <img src={logo} alt="Logo" className="logo" />
           <p className="logo-text">FRESH FLOWER DELIVERY EVERY DAY</p>
         </div>
-        <div className="links-container">
+        <div className="footer-container">
           <ul>
             <li><a href="#">About us</a></li>
             <li><a href="#">Services</a></li>
@@ -28,7 +28,7 @@ const Footer = () => {
           <a href="#"><img src={instagramIcon} alt="Instagram" /></a>
           <a href="#"><img src={youtubeIcon} alt="YouTube" /></a>
         </div>
-        <h1>© 2023 Farm Fresh Flowers</h1>
+        <h2>© 2023 Farm Fresh Flowers</h2>
       </div>
     </footer>
   );

@@ -20,6 +20,7 @@
 h1 {
     text-align: center;
     margin: 0;
+    font-size: 25px;
 }
 
 
@@ -32,7 +33,7 @@ h1 {
     border-radius: 10px;
     padding: 0;
     text-align: center;
-    height: 80%;
+    height: 90%;
     width: 100%;
 }
 
@@ -140,7 +141,4 @@ input::placeholder {
     transform: translateX(24px);
   }
 
-  .span {
-    background-color: white;
-  }
   
