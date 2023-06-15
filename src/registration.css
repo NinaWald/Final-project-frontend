@@ -48,7 +48,7 @@ label {
 input[type='text'],
 input[type='email'],
 input[type='password'] {
-    width: 390px;
+    max-width: 350px;
     height: 40px;
   display: flex;
   padding: 5px;
@@ -169,8 +169,8 @@ input::placeholder {
   }
 
   .discount {
-    height: 50px;
-    max-width: 390px;
+    height: 80px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
