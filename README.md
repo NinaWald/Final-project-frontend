@@ -30,6 +30,8 @@ Icons made by ="https://www.flaticon.com/authors/freepik" title="Freepik"> Freep
 
 "https://www.flaticon.com/free-icons/user" title="user icons">User icons created by Freepik - Flaticon
 
+"https://www.freepik.com/free-photo/three-hands-holding-black-basket-pink-roses-wall_5430331.htm#query=flower%20delivery&position=42&from_view=search&track=ais">Image by azerbaijan_stockers on Freepik
+
 https://final-backend-sl33jvdfkq-no.a.run.app/
 
 https://ninaw-final-project.netlify.app/
