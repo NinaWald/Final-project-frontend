@@ -111,11 +111,11 @@ const Hero = () => {
 
   return (
     <HeroContainer>
-      <video className="hero-video" autoPlay loop muted>
+      <video className="hero-video" autoPlay loop muted playsInline>
         <source src={heroVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <video className="mobile-video" autoPlay loop muted>
+      <video className="mobile-video" autoPlay loop muted playsInline>
         <source src={mobileVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
