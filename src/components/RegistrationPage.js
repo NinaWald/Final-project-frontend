@@ -134,29 +134,37 @@ const RegistrationPage = () => {
   const handleLogout = () => {
     dispatch(logoutUser());
     setUserName('');
+    setUserEmail('');
+    setPassword('');
   };
 
   return (
-
     <div className="form">
       {isLoading && <Loading />}
-      <div>
+      <div className="discount">
         <h1>Get 10% discount! Become a member today!</h1>
       </div>
 
       <div className="messages">
-        {errorMessage && (
+        {errorMessage ? (
           <div className="error">
             <h1>{errorMessage}</h1>
           </div>
+        ) : (
+          <div className="placeholder">
+            <h1>User info</h1>
+          </div>
         )}
+
         {isLoggedIn !== null ? (
           <div className="success">
             {isLoggedIn ? (
               <>
-                <h1>Welcome, {username}!</h1>
-                <LogoutButton onLogout={handleLogout} />
-                <DeleteUser />
+                <h1>Welcome to the memberpage, {username}!</h1>
+                <div className="member-buttons">
+                  <LogoutButton onLogout={handleLogout} />
+                  <DeleteUser />
+                </div>
               </>
             ) : (
               <h1>User successfully logged out!</h1>
@@ -197,6 +205,7 @@ const RegistrationPage = () => {
               placeholder="Password"
               required />
           </label>
+
           <div className="toggle-container">
             <h1>Register/Login</h1>
           </div>
@@ -222,8 +231,7 @@ const RegistrationPage = () => {
       </form>
     </div>
   );
-};
-
+}
 export default RegistrationPage;
 
 /*

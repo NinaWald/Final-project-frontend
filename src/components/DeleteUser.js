@@ -46,7 +46,7 @@ const DeleteUser = () => {
     <div>
       <Button
         variant="contained"
-        color="secondary"
+        color="primary"
         startIcon={<DeleteIcon />}
         onClick={handleDeleteUser}>
         Delete User
