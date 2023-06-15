@@ -234,16 +234,3 @@ const RegistrationPage = () => {
 }
 export default RegistrationPage;
 
-/*
-  const successMessage = () => {
-    if (isLoggedIn) {
-      return (
-        <div className="success" style={{ display: isLoggedIn ? '' : 'none' }}>
-          <h1>Welcome, {username}!</h1>
-          <LogoutButton onLogout={handleLogout} />
-        </div>
-      );
-    }
-    return null;
-  };
-*/
