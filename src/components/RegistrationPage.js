@@ -152,7 +152,7 @@ const RegistrationPage = () => {
           </div>
         ) : (
           <div className="placeholder">
-            <h1>User info</h1>
+            <h1>Member page</h1>
           </div>
         )}
 

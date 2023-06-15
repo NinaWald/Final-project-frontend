@@ -17,7 +17,7 @@ const Footer = () => {
           <ul>
             <li><a href="#">About us</a></li>
             <li><a href="#">Services</a></li>
-            <li><a href="#">Coaches</a></li>
+            <li><a href="#">Flower shops</a></li>
             <li><a href="#">Club</a></li>
             <li><a href="#">FAQs</a></li>
             <li><a href="#">Shop</a></li>

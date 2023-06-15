@@ -11,6 +11,7 @@ const LogoutButton = () => {
   const handleLogout = () => {
     dispatch(authSlice.actions.logoutUser()); // Dispatch the logoutUser action
     setShowPopup(true);
+    console.log('logout');
   };
 
   const handleClosePopup = () => {

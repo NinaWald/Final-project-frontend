@@ -14,6 +14,8 @@
 
 .form {
    margin-top: 100px;
+   
+
 
 }
 
@@ -113,8 +115,9 @@ input::placeholder {
     right: 0;
     bottom: 0;
     width: 53px;
-    background-color: #6ea295;
+    background-color: #cad4d2;
     border-radius: 34px;
+    border: 1px solid black;
     transition: background-color 0.4s;
   }
   
@@ -138,7 +141,7 @@ input::placeholder {
   }
   
   .toggle-switch-input:checked + .toggle-switch-slider {
-    background-color: #76abd6;
+    background-color: #68aa89;
   }
   
   .toggle-switch-input:checked + .toggle-switch-slider:before {
@@ -170,7 +173,7 @@ input::placeholder {
 
   .discount {
     height: 80px;
-    width: 100%;
+    width: 320px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -183,4 +186,5 @@ input::placeholder {
     margin-bottom: 20px;
 
   }
+
   
