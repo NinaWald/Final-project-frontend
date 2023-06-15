@@ -19,7 +19,7 @@ export const authSlice = createSlice({
     logoutUser: (state) => {
       state.username = null;
       state.accessToken = null;
-      state.userId = null;
+      state.userId = undefined;
       state.discount = 0; // Reset the discount value on logout
     },
     setDiscount: (state, action) => {
