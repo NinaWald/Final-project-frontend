@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
@@ -32,13 +32,7 @@ const ScrollToTop = () => {
 
   return null;
 };
-
 export const App = () => {
-  const [showPopup, setShowPopup] = useState(true);
-
-  const handlePopupClose = () => {
-    setShowPopup(false);
-  };
   return (
     <Provider store={store}>
       <BrowserRouter>
@@ -55,7 +49,7 @@ export const App = () => {
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<Navigate to="/404" />} />
           </Routes>
-          {showPopup && <PopupMessage onClose={handlePopupClose} />}
+          <PopupMessage />
         </div>
       </BrowserRouter>
     </Provider>
