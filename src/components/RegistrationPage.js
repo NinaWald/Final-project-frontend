@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { API_URL } from '../utils/urls';
 import { loginUser, setDiscount, setUserId, logoutUser } from '../reducers/authReducer';
-import { clearCart } from '../reducers/cart';
 import LogoutButton from './LogoutButton';
 import DeleteUser from './DeleteUser';
 import '../registration.css'
@@ -101,7 +100,6 @@ const RegistrationPage = () => {
         );
 
         dispatch(setDiscount(discount));
-        dispatch(clearCart());
         dispatch(setUserId(data.response.id));
       } else {
         setError(true);
