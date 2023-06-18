@@ -41,6 +41,8 @@ const ProductCard = styled.div`
     border-radius: 4px;
     padding: 5px;
     margin-bottom: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
     background-color: #dfdfd3;
     display: flex;
     flex-direction: column;

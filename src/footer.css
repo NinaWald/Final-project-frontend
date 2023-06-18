@@ -31,11 +31,13 @@
 
   .footer-container {
     margin: 0;
+    display: flex;
+    flex-direction: column;
   }
   
   .footer-container ul {
     list-style: none;
-    padding: 0;
+    padding: 5px;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -49,6 +51,7 @@
   
   .footer-container li {
     margin-bottom: 10px;
+    padding: 5px;
   }
   
   .footer-container a {
@@ -68,4 +71,28 @@
     font-size: 1.2rem;
     margin-bottom: 50px;
   }
+
+  .contact-me {
+    display: flex;
+    flex-direction: row;
+  }
+
+  h3 {
+    margin-top: 8px;
+  }
+
+  .contact-me ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
  
+  @media (min-width: 1061px) {
+    .footer-container ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .footer-container li {
+      margin-right: 20px;
+    }
+  }

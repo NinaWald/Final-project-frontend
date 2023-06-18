@@ -3,6 +3,7 @@ import '../footer.css';
 import twitterIcon from '../assets/twitter-sign.png';
 import instagramIcon from '../assets/instagram.png';
 import youtubeIcon from '../assets/youtube.png';
+import linkedIn from '../assets/linkedin.png'
 import logo from '../assets/flower.png'
 
 const Footer = () => {
@@ -29,6 +30,17 @@ const Footer = () => {
           <a href="#"><img src={youtubeIcon} alt="YouTube" /></a>
         </div>
         <h2>© 2023 Farm Fresh Flowers</h2>
+        <div className="contact-me">
+          <h3>by NinaW</h3>
+          <ul>
+            <li>
+              <a href="https://www.linkedin.com/in/nina-waldr%C3%A9us-b46abb104/"><img
+                src={linkedIn}
+                alt="LinkedIn" />
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </footer>
   );
