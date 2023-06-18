@@ -60,7 +60,7 @@ const ProductPage = () => {
           src={product.fields.image.fields.file.url}
           alt={product.fields.image.fields.title} />
       )}
-      <Price>Price: {product.fields.price}</Price>
+      <Price>Price: {product.fields.price}kr</Price>
       <CartItem productId={product.sys.id} />
       <Description>{product.fields.description}</Description>
       <Category>Category: {product.fields.category}</Category>

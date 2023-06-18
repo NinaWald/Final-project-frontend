@@ -138,97 +138,101 @@ const RegistrationPage = () => {
 
   return (
     <div className="form">
-      {isLoading && <Loading />}
-      <div className="discount">
-        <h1>Get 10% discount! Become a member today!</h1>
-      </div>
-
-      <div className="messages">
-        {errorMessage ? (
-          <div className="error">
-            <h1>{errorMessage}</h1>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <div className="discount">
+            <h1>Get 10% discount! Become a member today!</h1>
           </div>
-        ) : (
-          <div className="placeholder">
-            <h1>Member page</h1>
-          </div>
-        )}
 
-        {isLoggedIn !== null ? (
-          <div className="success">
-            {isLoggedIn ? (
-              <>
-                <h1>Welcome to the memberpage, {username}!</h1>
-                <div className="member-buttons">
-                  <LogoutButton onLogout={handleLogout} />
-                  <DeleteUser />
-                </div>
-              </>
+          <div className="messages">
+            {errorMessage ? (
+              <div className="error">
+                <h1>{errorMessage}</h1>
+              </div>
             ) : (
-              <h1>User successfully logged out!</h1>
+              <div className="placeholder">
+                <h1>Member page</h1>
+              </div>
             )}
-          </div>
-        ) : null}
-      </div>
 
-      <form className="registration" onSubmit={handleSubmit}>
-        <div className="regis-content">
-          <label className="label" htmlFor="nameInput">
-            <input
-              id="nameInput"
-              onChange={handleUserName}
-              className="input"
-              value={username}
-              type="text"
-              placeholder="Your name"
-              required />
-          </label>
-          <label className="label" htmlFor="emailInput">
-            <input
-              id="emailInput"
-              onChange={handleUserEmail}
-              className="input"
-              value={useremail}
-              type="email"
-              placeholder="E-mail"
-              required />
-          </label>
-          <label className="label" htmlFor="passwordInput">
-            <input
-              id="passwordInput"
-              onChange={handlePassword}
-              className="input"
-              value={password}
-              type="password"
-              placeholder="Password"
-              required />
-          </label>
-
-          <div className="toggle-container">
-            <h1>Register/Login</h1>
+            {isLoggedIn !== null ? (
+              <div className="success">
+                {isLoggedIn ? (
+                  <>
+                    <h1>Welcome to the member page, {username}!</h1>
+                    <div className="member-buttons">
+                      <LogoutButton onLogout={handleLogout} />
+                      <DeleteUser />
+                    </div>
+                  </>
+                ) : (
+                  <h1>User successfully logged out!</h1>
+                )}
+              </div>
+            ) : null}
           </div>
-          <label className="toggle-switch-label" htmlFor="registeredMember">
-            <div className="toggle-switch-container">
-              <input
-                id="registeredMember"
-                onChange={() => setIsRegisteredMember(!isRegisteredMember)}
-                className="toggle-switch-input"
-                type="checkbox"
-                checked={isRegisteredMember} />
-              <span className="toggle-switch-slider" />
-              <span className="toggle-switch-text">
-                {isRegisteredMember ? 'Log In' : 'Register'}
-              </span>
+
+          <form className="registration" onSubmit={handleSubmit}>
+            <div className="regis-content">
+              <label className="label" htmlFor="nameInput">
+                <input
+                  id="nameInput"
+                  onChange={handleUserName}
+                  className="input"
+                  value={username}
+                  type="text"
+                  placeholder="Your name"
+                  required />
+              </label>
+              <label className="label" htmlFor="emailInput">
+                <input
+                  id="emailInput"
+                  onChange={handleUserEmail}
+                  className="input"
+                  value={useremail}
+                  type="email"
+                  placeholder="E-mail"
+                  required />
+              </label>
+              <label className="label" htmlFor="passwordInput">
+                <input
+                  id="passwordInput"
+                  onChange={handlePassword}
+                  className="input"
+                  value={password}
+                  type="password"
+                  placeholder="Password"
+                  required />
+              </label>
+
+              <div className="toggle-container">
+                <h1>Register/Login</h1>
+              </div>
+              <label className="toggle-switch-label" htmlFor="registeredMember">
+                <div className="toggle-switch-container">
+                  <input
+                    id="registeredMember"
+                    onChange={() => setIsRegisteredMember(!isRegisteredMember)}
+                    className="toggle-switch-input"
+                    type="checkbox"
+                    checked={isRegisteredMember} />
+                  <span className="toggle-switch-slider" />
+                  <span className="toggle-switch-text">
+                    {isRegisteredMember ? 'Log In' : 'Register'}
+                  </span>
+                </div>
+              </label>
+
+              <button className="button" type="submit">
+                {isRegisteredMember ? 'Submit' : 'Submit'}
+              </button>
             </div>
-          </label>
-
-          <button className="button" type="submit">
-            {isRegisteredMember ? 'Submit' : 'Submit'}
-          </button>
-        </div>
-      </form>
+          </form>
+        </>
+      )}
     </div>
   );
 }
 export default RegistrationPage;
-

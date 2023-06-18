@@ -8,11 +8,12 @@
 
 
 .cards-grid {
-    margin-top: 50px;
+    margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
     gap: 5px; /* spacing between cards */
-
+    margin-left: 10px;
+    margin-right: 10px;
     
   }
 

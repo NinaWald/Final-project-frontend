@@ -125,7 +125,7 @@ const CategoryProducts = () => {
                   src={product.fields.image.fields.file.url}
                   alt={product.fields.image.fields.title} />
               )}
-              <p>Price: {product.fields.price}</p>
+              <p>Price: {product.fields.price}kr</p>
             </StyledLink>
             <CartItem productId={product.sys.id} />
           </ProductCard>

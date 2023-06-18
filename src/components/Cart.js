@@ -1,8 +1,9 @@
-import { Button } from '@mui/material';
+import { Button, IconButton } from '@mui/material';
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { clearCart } from 'reducers/cart';
+import { clearCart, removeItem } from 'reducers/cart';
 import styled from 'styled-components'
+import trashBin from '../assets/bin.png'
 
 const CartContainer = styled.div`
   max-width: 600px;
@@ -69,6 +70,18 @@ const ClearCartButton = styled(Button)`
   margin-top: 20px;
 `;
 
+const RemoveButton = styled(IconButton)`
+  background-color: transparent !important;
+  color: #ff0000 !important;
+  margin-left: auto;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+
+`;
+
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const products = useSelector((state) => state.products.items);
@@ -91,6 +104,10 @@ const Cart = () => {
     dispatch(clearCart());
   };
 
+  const handleRemoveItem = (itemId) => {
+    dispatch(removeItem({ id: itemId }));
+  };
+
   return (
     <CartContainer>
       <Title>Cart</Title>
@@ -108,15 +125,19 @@ const Cart = () => {
                     alt={product.fields.image.fields.title} />
                   <ProductDetails>
                     <ProductName>{product.fields.name}</ProductName>
-                    <ProductPrice>Price: {product.fields.price}</ProductPrice>
+                    <ProductPrice>Price: {product.fields.price}kr</ProductPrice>
                     <ProductQuantity>Quantity: {item.quantity}</ProductQuantity>
                   </ProductDetails>
+                  <RemoveButton
+                    onClick={() => handleRemoveItem(item.id)}>
+                    <img src={trashBin} alt="Remove" />
+                  </RemoveButton>
                 </ProductContainer>
               );
             }
             return null;
           })}
-          <TotalPrice>Total Price: {discountedTotalPrice}</TotalPrice>
+          <TotalPrice>Total Price: {discountedTotalPrice}kr</TotalPrice>
           <ClearCartButton variant="contained" onClick={handleClearCart}>
             Clear Cart
           </ClearCartButton>

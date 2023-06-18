@@ -28,7 +28,7 @@ const FlowerCarousel = () => {
                 {product.fields.image && (
                   <img src={product.fields.image.fields.file.url} alt={product.fields.name} />
                 )}
-                <p>Price: {product.fields.price}</p>
+                <p>Price: {product.fields.price}kr</p>
               </div>
             </Link>
           </div>
