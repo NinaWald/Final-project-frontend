@@ -9,11 +9,11 @@ const faqData = [
   },
   {
     question: 'Can I customize the flower bouquet?',
-    answer: 'Yes, many florists offer customization options for flower bouquets. You can often choose the type of flowers, colors, and arrangement style to create a personalized bouquet. Be sure to check with the florist to see what customization options they provide.'
+    answer: 'Yes, we offer customization options for flower bouquets. You can choose the type of flowers, colors, and arrangement style to create a personalized bouquet. Be sure to check with the florist to see what customization options they provide.'
   },
   {
     question: 'Do flower bouquets come with a vase?',
-    answer: 'The inclusion of a vase with a flower bouquet depends on the florist or the specific product. Some bouquets are sold with a vase, while others may be sold without one. Its always a good idea to check the product description or contact the florist to confirm whether a vase is included.'
+    answer: 'Yes, all our flower bouquets come with a complementary vase included in the price. When you purchase a bouquet from us, you can expect to receive a beautiful vase along with the flowers. This ensures that you have a suitable container to display and enjoy your bouquet immediately. You dont need to worry about purchasing a separate vase as it is already included with your order. Enjoy the convenience of receiving a complete package with both the flowers and a complementary vase.'
   },
   {
     question: 'How should I care for my flower bouquet?',
