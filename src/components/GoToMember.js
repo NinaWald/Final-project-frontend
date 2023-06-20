@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 const StyledLink = styled(Link)`
   color: rgb(63, 65, 67);
   text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
   
 `;
 
@@ -19,14 +21,16 @@ const GoToMemberWrapper = styled.div`
     border-radius: 4px;
     padding: 25px;
     margin: 35px;
-    background-color: lightgray;
+    background-color: #e6e6e6;
     text-align: center;
     max-width: 400px;
     cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0.2, 0.9);
        
     &:hover {
-    background-color: #75a3a3;
+    background-color: #b4cbcb;
     color: #000000;
+    transform: scale(1.05);
   }
 
 `;

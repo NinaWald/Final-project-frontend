@@ -97,7 +97,7 @@ const StyledLink = styled(Link)`
 
 `;
 
-const ButtonContainer = styled.button`
+const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
