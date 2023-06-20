@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import SideImage from '../assets/male-florist.jpg'
 
 const SideComponentContainer = styled.div`
@@ -35,12 +36,17 @@ const SideComponentImage = styled.img`
   border-radius: 5px;
   margin-bottom: 20px;
 `;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
 
 const SideHero2 = () => {
   return (
     <SideComponentContainer>
       <SideComponentTitle>Fresh flowers from the market</SideComponentTitle>
-      <SideComponentImage src={SideImage} alt="Component 1" />
+      <StyledLink to="/about">
+        <SideComponentImage src={SideImage} alt="Component 1" />
+      </StyledLink>
       <SideComponentArticle>
         We handpick every flower from the market.
       </SideComponentArticle>

@@ -17,13 +17,23 @@ const Title = styled.h2`
   margin-bottom: 20px;
 `;
 
+const StyledButton = styled(Link)`
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #669999;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 10px;
+`;
+
 const CheckOut = () => {
   return (
     <CheckOutContainer>
       <Title>This checkout page is not available yet</Title>
       <Cart />
       <BackButton />
-      <Link to="/">Go back to homepage</Link>
+      <StyledButton to="/">Go back to homepage</StyledButton>
     </CheckOutContainer>
   );
 };

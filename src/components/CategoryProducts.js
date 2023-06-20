@@ -9,7 +9,7 @@ import BackButton from './BackButton';
 const CategoryContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 150px;
+  margin-top: 100px;
   width: 100%;
   height: 500px;
   
@@ -24,6 +24,8 @@ const Container = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
     gap: 5px; /* spacing between cards */
+    margin-left: 10px;
+    margin-right: 10px;
 
     @media (min-width: 668px) and (max-width: 1060px) {
       grid-template-columns: repeat(3, 1fr);
@@ -40,9 +42,6 @@ const ProductCard = styled.div`
     border: 1px solid #669999;
     border-radius: 4px;
     padding: 5px;
-    margin-bottom: 16px;
-    margin-left: 10px;
-    margin-right: 10px;
     background-color: #dfdfd3;
     display: flex;
     flex-direction: column;

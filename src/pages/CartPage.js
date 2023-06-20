@@ -17,7 +17,7 @@ const CartPageContainer = styled.div`
 const StyledButton = styled(Button)`
     && {
     margin: 20px;
-    background-color: #669999;
+    background-color: #336699;
   }
 `;
 

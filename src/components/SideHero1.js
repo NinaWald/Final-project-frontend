@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import SideImage from '../assets/flower.delivery.jpg'
 
 const SideComponentContainer = styled.div`
@@ -37,11 +38,17 @@ const SideComponentImage = styled.img`
   margin-bottom: 20px;
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 const SideHero1 = () => {
   return (
     <SideComponentContainer>
       <SideComponentTitle>Fast delivery</SideComponentTitle>
-      <SideComponentImage src={SideImage} alt="Component 1" />
+      <StyledLink to="/faq">
+        <SideComponentImage src={SideImage} alt="Component 1" />
+      </StyledLink>
       <SideComponentArticle>
         We deliver every day, order before 12.
       </SideComponentArticle>
