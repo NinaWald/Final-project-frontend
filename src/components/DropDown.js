@@ -21,7 +21,7 @@ const faqData = [
   },
   {
     question: 'Can I request same-day delivery for flower bouquets?',
-    answer: 'Many florists offer same-day delivery services for flower bouquets. However, availability may vary depending on your location and the time you place your order. Its recommended to contact the florist directly or check their website for information on same-day delivery.'
+    answer: 'Yes, we offer same-day delivery for flower bouquets if you place your order before 12 PM (noon) local time. This allows us to process and arrange your order in time for delivery on the same day. Please note that same-day delivery availability may vary based on your location and the specific floral arrangements. We recommend checking the product details or contacting our customer support for more information on same-day delivery options.'
   }
 ];
 

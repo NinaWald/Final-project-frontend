@@ -10,7 +10,7 @@ const BackButton = () => {
   };
 
   return (
-    <Button variant="contained" onClick={handleGoBack} style={{ backgroundColor: '#669999' }}>
+    <Button variant="contained" onClick={handleGoBack} style={{ backgroundColor: '#333333' }}>
             Go Back
     </Button>
   );
