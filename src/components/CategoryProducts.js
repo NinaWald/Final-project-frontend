@@ -10,6 +10,7 @@ const CategoryContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 100px;
+  margin-bottom: 100px;
   width: 100%;
   height: 500px;
   
@@ -99,6 +100,10 @@ const StyledLink = styled(Link)`
 const ButtonContainer = styled.button`
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 200px;
+  margin-left: 50px;
+  padding: 30px;
 `
 
 const CategoryProducts = () => {

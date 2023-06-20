@@ -14,7 +14,7 @@ const FlowerCarousel = () => {
 
   return (
     <div className="carousel-container">
-      <h2 className="carousel-header">Featured Bouquets</h2>
+      <h1 className="carousel-header">Featured Bouquets</h1>
       <AutoplaySlider
         className="flower-carousel"
         play

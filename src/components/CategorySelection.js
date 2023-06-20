@@ -14,7 +14,12 @@ const Container = styled.div`
 `;
 
 const HeaderContainer = styled.div`
-  margin-bottom: 5px;
+   margin-bottom: 15px;
+  margin-top: 15px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: 668px) {
     display: flex;
@@ -72,7 +77,7 @@ const CategorySelection = () => {
   return (
     <Container>
       <HeaderContainer>
-        <h2>Browse Categories</h2>
+        <h1>Browse Categories</h1>
       </HeaderContainer>
       <ImageWrapper>
         <Image
