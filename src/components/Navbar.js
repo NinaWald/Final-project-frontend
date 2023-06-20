@@ -42,8 +42,7 @@ const Navbar = () => {
         <Link className="link-item" to="/">Home</Link>
         <Link className="link-item" to="/member">Member</Link>
         <Link className="link-item" to="/about">About</Link>
-        <Link className="link-item" to="/">Services</Link>
-        <Link className="link-item" to="/">FAQs</Link>
+        <Link className="link-item" to="/faq">FAQs</Link>
       </div>
 
       <ul className={`navbar-links ${menuOpen ? 'navbar-links-open' : ''}`}>
@@ -51,8 +50,7 @@ const Navbar = () => {
         <li><Link to="/member">Member</Link></li>
         <li><Link to="/cart">Cart</Link></li>
         <li><Link to="/about">About</Link></li>
-        <li><Link to="/">Services</Link></li>
-        <li><Link to="/">FAQs</Link></li>
+        <li><Link to="/faq">FAQs</Link></li>
       </ul>
 
       <div

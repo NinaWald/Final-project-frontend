@@ -16,12 +16,11 @@ const Footer = () => {
         </div>
         <div className="footer-container">
           <ul>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Flower shops</a></li>
-            <li><a href="#">Club</a></li>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">Shop</a></li>
+            <li><a href="/about">About us</a></li>
+            <li><a href="*">Flower shops</a></li>
+            <li><a href="/member">Member</a></li>
+            <li><a href="/faq">FAQs</a></li>
+            <li><a href="/">Shop</a></li>
           </ul>
         </div>
         <div className="social-icons-container">
