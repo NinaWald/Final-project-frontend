@@ -3,7 +3,7 @@ import '../footer.css';
 import twitterIcon from '../assets/twitter-sign.png';
 import instagramIcon from '../assets/instagram.png';
 import youtubeIcon from '../assets/youtube.png';
-import linkedIn from '../assets/linkedin.png'
+import linkedIn from '../assets/linkedin-icon.png'
 import logo from '../assets/flower.png'
 
 const Footer = () => {

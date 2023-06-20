@@ -67,6 +67,14 @@
     border-radius: 10px;
     
     }
+
+    .contact-me img {
+      width: 35px;
+      margin-left: 5px;
+      background-color: white;
+      border-radius: 5px;
+    }
+
   h2 {
     font-size: 1.2rem;
     margin-bottom: 50px;
@@ -78,7 +86,7 @@
   }
 
   h3 {
-    margin-top: 8px;
+    margin-top: 15px;
   }
 
   .contact-me ul {

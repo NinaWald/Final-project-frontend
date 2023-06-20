@@ -5,6 +5,7 @@ import CardsList from '../components/CardsList';
 import Hero from '../components/Hero';
 import CategorySelection from '../components/CategorySelection';
 import Footer from '../components/Footer';
+import Dropdown from '../components/DropDown';
 
 export const HomePage = () => {
   return (
@@ -14,6 +15,7 @@ export const HomePage = () => {
       <FlowerCarousel />
       <CardsList />
       <RegistrationPage />
+      <Dropdown />
       <Footer />
     </div>
   );
