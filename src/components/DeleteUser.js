@@ -22,7 +22,7 @@ const DeleteUser = () => {
         method: 'DELETE',
         headers: {
           'Content-type': 'application/json',
-          Authorization: `Bearer ${accessToken}`
+          Authorization: accessToken
         }
       });
 
