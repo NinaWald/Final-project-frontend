@@ -1,4 +1,4 @@
-import { Button, IconButton } from '@mui/material';
+import { Button, IconButton, Typography } from '@mui/material';
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart, removeItem } from 'reducers/cart';
@@ -138,6 +138,11 @@ const Cart = () => {
             return null;
           })}
           <TotalPrice>Total Price: {discountedTotalPrice}kr</TotalPrice>
+          {isAuthenticated && discount > 0 && (
+            <Typography variant="subtitle1">
+                Discount Applied: {discount * 100}% off
+            </Typography>
+          )}
           <ClearCartButton variant="contained" onClick={handleClearCart}>
             Clear Cart
           </ClearCartButton>
