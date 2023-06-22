@@ -1,9 +1,10 @@
 import { Button, IconButton, Typography } from '@mui/material';
+import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart, removeItem } from 'reducers/cart';
 import styled from 'styled-components'
-import trashBin from '../assets/bin.png'
 
 const CartContainer = styled.div`
   max-width: 600px;
@@ -72,14 +73,8 @@ const ClearCartButton = styled(Button)`
 
 const RemoveButton = styled(IconButton)`
   background-color: transparent !important;
-  color: #ff0000 !important;
+  color: black;
   margin-left: auto;
-
-  img {
-    width: 24px;
-    height: 24px;
-  }
-
 `;
 
 const Cart = () => {
@@ -130,7 +125,7 @@ const Cart = () => {
                   </ProductDetails>
                   <RemoveButton
                     onClick={() => handleRemoveItem(item.id)}>
-                    <img src={trashBin} alt="Remove" />
+                    <DeleteForeverIcon />
                   </RemoveButton>
                 </ProductContainer>
               );
@@ -143,7 +138,10 @@ const Cart = () => {
                 Discount Applied: {discount * 100}% off
             </Typography>
           )}
-          <ClearCartButton variant="contained" onClick={handleClearCart}>
+          <ClearCartButton
+            variant="contained"
+            onClick={handleClearCart}
+            startIcon={<RemoveShoppingCartIcon />}>
             Clear Cart
           </ClearCartButton>
         </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '@mui/material/Button';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import Cart from '../components/Cart.js';
 import BackButton from '../components/BackButton.js';
 
@@ -25,7 +26,12 @@ const CartPage = () => {
   return (
     <CartPageContainer>
       <Cart />
-      <StyledButton component={Link} to="/checkout" variant="contained" color="primary">
+      <StyledButton
+        component={Link}
+        to="/checkout"
+        variant="contained"
+        startIcon={<ShoppingCartCheckoutIcon />}
+        color="primary">
         Go to Checkout
       </StyledButton>
       <BackButton />
