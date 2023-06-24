@@ -18,11 +18,11 @@ const DeleteUser = () => {
     setError(null);
 
     try {
+      console.log(accessToken);
       const deleteResponse = await fetch(API_URL(`delete/${userId}`), {
         method: 'DELETE',
         headers: {
-          'Content-type': 'application/json',
-          Authorization: accessToken
+          'Content-type': 'application/json'
         }
       });
 

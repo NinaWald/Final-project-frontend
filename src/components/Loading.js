@@ -1,7 +1,7 @@
 import React from 'react';
 import Lottie from 'lottie-react';
 import styled from 'styled-components';
-import myAnimation from '../assets/lottie-loading.json'
+import myAnimation from '../assets/circle-loading.json'
 
 const LoadingContainer = styled.div`
   display: flex;
