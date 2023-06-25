@@ -77,8 +77,8 @@ const ProductCard = styled.div`
 const Image = styled.img`
     cursor: pointer;
     width: 100%;
-    max-height: 200px;
-    object-fit: cover;
+    max-height: auto;
+    object-fit: contain;
     margin-bottom: 8px;
 `;
 
