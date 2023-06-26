@@ -22,7 +22,8 @@ const DeleteUser = () => {
       const deleteResponse = await fetch(API_URL(`delete/${userId}`), {
         method: 'DELETE',
         headers: {
-          'Content-type': 'application/json'
+          'Content-type': 'application/json',
+          Authorization: accessToken // Include the access token in the request headers
         }
       });
 
