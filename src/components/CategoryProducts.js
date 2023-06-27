@@ -42,7 +42,7 @@ const Container = styled.div`
 const ProductCard = styled.div`
     border: 1px solid #669999;
     border-radius: 4px;
-    padding: 5px;
+    padding: 5px 0 5px 0;
     background-color: #dfdfd3;
     display: flex;
     flex-direction: column;
@@ -52,7 +52,6 @@ const ProductCard = styled.div`
     @media (min-width: 668px) and (max-width: 1060px) {
       border: 1px solid #669999;
       border-radius: 4px;
-      padding: 5px;
       margin: 5px;
       background-color: #dfdfd3;
       display: flex;
@@ -64,7 +63,7 @@ const ProductCard = styled.div`
     @media (min-width: 1061px) {
       border: 1px solid #669999;
       border-radius: 4px;
-      padding: 15px;
+
       margin: 15px;
       background-color: #dfdfd3;
       display: flex;

@@ -3,15 +3,17 @@ _______________________________________________________________________
 
 The final project made by Nina Waldreus, Frontend student at Technigo;
 A Flower webshop.
+Is responsive and works well on mobile, tablet and desktop
 
 Tech:
 
 Frontend:
 React, Redux, CMS Contentful, CSS, Styled Components, MUI-materials for buttons/icons, npm package carousel.
+Navigation using React Router 
 Netlify for deployment.
 
 Backend:
-MongoDB, MongoDB Compass/Atlas, mongoose, Postman, Node.js, Express API cors, bcrypt.
+MongoDB, MongoDB database Compass/Atlas, mongoose, Postman, Node.js, Express API cors, bcrypt.
 Google cloud for deployment and MongoDB for storing the database (user members)
 
 I made a webshop using React and Redux to handle the state of the products and user actions.

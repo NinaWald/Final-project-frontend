@@ -64,7 +64,7 @@ input[type='password'] {
 }
 
 input::placeholder {
-    color: black;
+    color: rgb(143, 142, 142);
   }
 
   button[type='submit'] {
@@ -79,6 +79,11 @@ input::placeholder {
     width: 150px;
     transition: all 0.3s ease-in-out;
 
+  }
+
+  button[type='submit']:hover {
+    background-color: #669999;
+    color: #c9c9c0;
   }
 
   
@@ -131,17 +136,17 @@ input::placeholder {
   .toggle-switch-slider:before {
     position: absolute;
     content: "";
-    height: 25px;
-    width: 25px;
+    height: 26px;
+    width: 26px;
     left: 2px;
     bottom: 2px;
-    background-color: rgb(134, 100, 149);
+    background-color: rgb(138, 45, 178);
     border-radius: 50%;
     transition: transform 0.4s;
   }
   
   .toggle-switch-input:checked + .toggle-switch-slider {
-    background-color: #68aa89;
+    background-color: #94ada0;
   }
   
   .toggle-switch-input:checked + .toggle-switch-slider:before {
@@ -184,6 +189,7 @@ input::placeholder {
     border: 2px solid rgb(176, 172, 172);
     background-color: white;
     margin-bottom: 20px;
+    background-color:#c1d2c9;
 
   }
 

@@ -62,6 +62,7 @@ const RegistrationPage = () => {
       if (registerResponse.ok) {
         setSubmitted(true);
         setError(false);
+        setErrorMessage('You are now registered!');
       } else {
         setError(true);
         setErrorMessage('Registration failed. Please try again.');
