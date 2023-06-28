@@ -96,9 +96,7 @@ const RegistrationPage = () => {
         setError(false);
         setUserName(responseUsername);
 
-        dispatch(
-          loginUser(responseUsername, accessToken, data.response.id)
-        );
+        dispatch(loginUser({ username: responseUsername, accessToken, userId: data.response.id }))
 
         dispatch(setDiscount(discount));
         dispatch(setUserId(data.response.id));
