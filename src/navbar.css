@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px;
+  padding: 25px 0 25px 0;
   height: 20px;
   background-color: rgba(171, 198, 188, 0.4); /* Semi-transparent white background */
   z-index: 100;
