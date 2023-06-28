@@ -26,6 +26,9 @@
 
 .cart-container {
   margin-right: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .cart-icon-link, user-icon-link {

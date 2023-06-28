@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import SearchField from 'components/SearchField';
 import '../navbar.css';
 import cartItem from '../assets/grey-cart.png';
 import userIcon from '../assets/user.png'
@@ -36,6 +37,7 @@ const Navbar = () => {
         <Link to="/member" className="user-icon-link">
           <img src={userIcon} alt="User" className="user-icon" />
         </Link>
+        <SearchField />
       </div>
 
       <div className="links-container">
