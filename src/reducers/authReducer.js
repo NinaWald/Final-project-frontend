@@ -4,7 +4,8 @@ const initialState = {
   username: null,
   accessToken: null,
   userId: null,
-  discount: 0 // Initial discount value
+  discount: 0, // Initial discount value
+  isDeleted: false // New state property for deletion status
 };
 
 export const authSlice = createSlice({
@@ -21,6 +22,7 @@ export const authSlice = createSlice({
       state.accessToken = null;
       state.userId = undefined;
       state.discount = 0; // Reset the discount value on logout
+      state.isDeleted = false; // Reset the deletion status on logout
     },
     setDiscount: (state, action) => {
       state.discount = action.payload;
@@ -30,6 +32,7 @@ export const authSlice = createSlice({
       state.accessToken = null;
       state.userId = null;
       state.discount = 0;
+      state.isDeleted = true; // Update the deletion status to true
     },
     setUserId: (state, action) => {
       state.userId = action.payload;

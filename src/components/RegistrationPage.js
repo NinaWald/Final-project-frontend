@@ -20,6 +20,7 @@ const RegistrationPage = () => {
   const [error, setError] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [isDeleted, setIsDeleted] = useState(false);
 
   useEffect(() => {
     setUserName('');
@@ -28,6 +29,7 @@ const RegistrationPage = () => {
     setSubmitted(false);
     setError(false);
     setErrorMessage('');
+    setIsDeleted(false);
   }, []);
 
   const handleUserName = (e) => {
@@ -133,6 +135,7 @@ const RegistrationPage = () => {
     setUserName('');
     setUserEmail('');
     setPassword('');
+    setIsDeleted(false);
   };
 
   return (
@@ -165,6 +168,12 @@ const RegistrationPage = () => {
                       <LogoutButton onLogout={handleLogout} />
                       <DeleteUser />
                     </div>
+                    {isDeleted && (
+                      <div className="success">
+                        <h1>Membership deleted successfully!</h1>
+                      </div>
+                    )}
+
                   </>
                 ) : (
                   <h1>User successfully logged out!</h1>

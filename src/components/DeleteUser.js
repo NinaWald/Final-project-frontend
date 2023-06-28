@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { deleteUser } from '../reducers/authReducer';
 import { API_URL } from '../utils/urls';
@@ -8,6 +10,8 @@ import { API_URL } from '../utils/urls';
 const DeleteUser = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [open, setOpen] = useState(false);
+
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.userId);
   const accessToken = useSelector((state) => state.auth.accessToken);
@@ -18,7 +22,6 @@ const DeleteUser = () => {
     setError(null);
 
     try {
-      console.log(accessToken);
       const deleteResponse = await fetch(API_URL(`delete/${userId}`), {
         method: 'DELETE',
         headers: {
@@ -31,6 +34,7 @@ const DeleteUser = () => {
 
       if (deleteResponse.ok) {
         dispatch(deleteUser()); // Handle success response or perform any necessary actions
+        setOpen(true); // Show the Snackbar when user is deleted successfully
         console.log(deleteData.response); // Log the response message from the backend
       } else {
         setError(deleteData.response);
@@ -41,6 +45,10 @@ const DeleteUser = () => {
     }
 
     setLoading(false);
+  };
+
+  const handleClose = () => {
+    setOpen(false); // Close the Snackbar
   };
 
   return (
@@ -54,6 +62,11 @@ const DeleteUser = () => {
       </Button>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
+      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+        <MuiAlert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Membership deleted successfully!
+        </MuiAlert>
+      </Snackbar>
     </div>
   );
 };

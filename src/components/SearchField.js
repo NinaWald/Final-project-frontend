@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { TextField, Autocomplete, IconButton } from '@mui/material';
+import { TextField, Autocomplete, IconButton, Popover } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-// import { styled } from '@mui/system';
 import SearchIcon from '@mui/icons-material/Search';
 
 const SearchField = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
   const products = useSelector((state) => state.products.items);
   const navigate = useNavigate();
 
@@ -29,11 +28,17 @@ const SearchField = () => {
         navigate(`/product/${productId}`);
       }
     }
+
+    setAnchorEl(null);
+    setSearchTerm('');
   };
 
-  const handleSearchToggle = () => {
-    setIsSearchVisible((prevIsSearchVisible) => !prevIsSearchVisible);
+  const handleSearchToggle = (event) => {
+    setAnchorEl(event.currentTarget);
   };
+
+  const isPopoverOpen = Boolean(anchorEl);
+  const popoverId = isPopoverOpen ? 'search-popover' : undefined;
 
   return (
     <>
@@ -44,7 +49,20 @@ const SearchField = () => {
         }}>
         <SearchIcon sx={{ fontSize: '2.4rem' }} />
       </IconButton>
-      {isSearchVisible && (
+
+      <Popover
+        id={popoverId}
+        open={isPopoverOpen}
+        anchorEl={anchorEl}
+        onClose={() => setAnchorEl(null)}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center'
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center'
+        }}>
         <form onSubmit={handleSearchSubmit}>
           <Autocomplete
             options={products}
@@ -63,7 +81,7 @@ const SearchField = () => {
             )}
             onChange={(event, value) => handleSearchSubmit(event, value?.fields.name)} />
         </form>
-      )}
+      </Popover>
     </>
   );
 };
