@@ -34,8 +34,10 @@ const DeleteUser = () => {
 
       if (deleteResponse.ok) {
         dispatch(deleteUser()); // Handle success response or perform any necessary actions
+        console.log('Delete user success:', deleteData);
         setOpen(true); // Show the Snackbar when user is deleted successfully
         console.log(deleteData.response); // Log the response message from the backend
+        console.log('Open value after setting to true:', open);
       } else {
         setError(deleteData.response);
       }
@@ -45,11 +47,15 @@ const DeleteUser = () => {
     }
 
     setLoading(false);
+    console.log('Loading value:', loading);
   };
 
   const handleClose = () => {
     setOpen(false); // Close the Snackbar
   };
+
+  // Add a console log to check the value of 'open'
+  console.log('Open value:', open);
 
   return (
     <div>
