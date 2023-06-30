@@ -3,6 +3,7 @@ import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { clearCart, removeItem } from 'reducers/cart';
 import styled from 'styled-components'
 
@@ -115,9 +116,11 @@ const Cart = () => {
             if (product) {
               return (
                 <ProductContainer key={item.id}>
-                  <ProductImage
-                    src={product.fields.image.fields.file.url}
-                    alt={product.fields.image.fields.title} />
+                  <Link to={`/products/${product.sys.id}`}>
+                    <ProductImage
+                      src={product.fields.image.fields.file.url}
+                      alt={product.fields.image.fields.title} />
+                  </Link>
                   <ProductDetails>
                     <ProductName>{product.fields.name}</ProductName>
                     <ProductPrice>Price: {product.fields.price}kr</ProductPrice>
@@ -152,3 +155,24 @@ const Cart = () => {
 
 export default Cart;
 
+/*
+ the variable acc is an abbreviation for "accumulator."
+ It is used as a parameter in the reduce method,
+ specifically in the totalPrice calculation.
+
+ In this code snippet,
+ the reduce method is used to iterate over the cartItems array and calculate
+  the total price of all items in the cart.
+  The acc parameter represents the accumulated value during each iteration.
+  It starts with an initial value of 0 (specified as the second argument to reduce).
+
+For each item in the cartItems array,
+the corresponding product is fetched from the products array based on the id match.
+If a valid product is found, the price of the product multiplied by the quantity
+ of the item is added to the accumulated value (acc). If no valid product is found,
+ the accumulated value (acc) is returned as is.
+
+At the end of the reduce method, the final accumulated value represents
+ the total price of all items in the cart,
+which is assigned to the totalPrice variable.
+*/

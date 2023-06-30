@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TextField, Autocomplete, IconButton, Popover } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -7,8 +7,14 @@ import SearchIcon from '@mui/icons-material/Search';
 const SearchField = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [anchorEl, setAnchorEl] = useState(null);
+  const [sortedProducts, setSortedProducts] = useState([]);
   const products = useSelector((state) => state.products.items);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const sorted = [...products].sort((a, b) => a.fields.name.localeCompare(b.fields.name));
+    setSortedProducts(sorted);
+  }, [products]);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -19,7 +25,7 @@ const SearchField = () => {
     const searchValue = value || searchTerm;
 
     if (searchValue) {
-      const filteredProducts = products.filter(
+      const filteredProducts = sortedProducts.filter(
         (product) => product.fields.name.toLowerCase().startsWith(searchValue.toLowerCase())
       );
 
@@ -65,7 +71,7 @@ const SearchField = () => {
         }}>
         <form onSubmit={handleSearchSubmit}>
           <Autocomplete
-            options={products}
+            options={sortedProducts}
             getOptionLabel={(option) => option.fields.name}
             renderInput={(params) => (
               <TextField

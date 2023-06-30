@@ -44,13 +44,13 @@
 
 .cart-item-count {
   position: absolute;
-  top: -8px;
-  right: -8px;
+  top: -10px;
+  right: -10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   background-color: rgb(156, 170, 160);
   color: #fff;
   font-size: 12px;
@@ -85,7 +85,7 @@
   cursor: pointer;
   margin-left: auto;
   z-index: 101;
-  margin-right: 65px;
+  margin-right: 35px;
 }
 
 .navbar-hamburger-menu span {
