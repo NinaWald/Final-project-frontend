@@ -1,4 +1,6 @@
-
+Github link to backend code: https://github.com/NinaWald/final-backend
+Live demo link Netlify: https://ninaw-final-project.netlify.app/
+Google cloud deploy backend: https://final-backend-sl33jvdfkq-no.a.run.app/
 _______________________________________________________________________
 
 The final project made by Nina Waldreus, Frontend student at Technigo;
