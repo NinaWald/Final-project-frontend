@@ -20,6 +20,7 @@ const RegistrationPage = () => {
   const [error, setError] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [deleteMessage, setDeleteMessage] = useState('');
 
   useEffect(() => {
     setUserName('');
@@ -28,6 +29,7 @@ const RegistrationPage = () => {
     setSubmitted(false);
     setError(false);
     setErrorMessage('');
+    setDeleteMessage('');
   }, []);
 
   const handleUserName = (e) => {
@@ -133,6 +135,16 @@ const RegistrationPage = () => {
     setUserName('');
     setUserEmail('');
     setPassword('');
+    setDeleteMessage('');
+  };
+  /* const clearFormFields = () => {
+    setUserName('');
+    setUserEmail('');
+    setPassword('');
+  };
+*/
+  const handleDeleteMessage = (message) => {
+    setDeleteMessage(message);
   };
 
   return (
@@ -146,33 +158,38 @@ const RegistrationPage = () => {
           </div>
 
           <div className="messages">
-            {errorMessage ? (
+            {deleteMessage && (
+              <div className="success">
+                <h1>{deleteMessage}</h1>
+              </div>
+            )}
+            {errorMessage && (
               <div className="error">
                 <h1>{errorMessage}</h1>
               </div>
-            ) : (
+            )}
+            {!deleteMessage && !errorMessage && (
               <div className="placeholder">
                 <h1>Member page</h1>
               </div>
             )}
-
-            {isLoggedIn !== null ? (
-              <div className="success">
-                {isLoggedIn ? (
-                  <>
-                    <h1>Welcome to the member page, {username}!</h1>
-                    <div className="member-buttons">
-                      <LogoutButton onLogout={handleLogout} />
-                      <DeleteUser />
-                    </div>
-
-                  </>
-                ) : (
-                  <h1>User successfully logged out!</h1>
-                )}
-              </div>
-            ) : null}
           </div>
+
+          {isLoggedIn !== null ? (
+            <div className="success">
+              {isLoggedIn ? (
+                <>
+                  <h1>Welcome to the member page, {username}!</h1>
+                  <div className="member-buttons">
+                    <LogoutButton onLogout={handleLogout} />
+                    <DeleteUser onUserDeleted={() => handleDeleteMessage('Membership deleted successfully!')} />
+                  </div>
+                </>
+              ) : (
+                <h1>User successfully logged out!</h1>
+              )}
+            </div>
+          ) : null}
 
           <form className="registration" onSubmit={handleSubmit}>
             <div className="regis-content">
@@ -236,3 +253,7 @@ const RegistrationPage = () => {
   );
 }
 export default RegistrationPage;
+
+/*
+          <DeleteUser onUserDeleted={clearFormFields} />
+*/

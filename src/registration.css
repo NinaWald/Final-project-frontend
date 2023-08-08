@@ -14,7 +14,7 @@
 
 .form {
    margin-top: 100px;
-   
+   border: 2px solid rgb(176, 172, 172);
 
 
 }
@@ -164,7 +164,7 @@ input::placeholder {
     padding: 5px;
     margin: 0 auto;
     border-radius: 5px;
-    border: 2px solid rgb(176, 172, 172);
+    /*border: 2px solid rgb(176, 172, 172);*/
     background-color: white;
 
   }

@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
+
 import DeleteIcon from '@mui/icons-material/Delete';
 import { deleteUser } from '../reducers/authReducer';
 import { API_URL } from '../utils/urls';
 
-const DeleteUser = () => {
+const DeleteUser = ({ onUserDeleted }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [open, setOpen] = useState(false);
 
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.userId);
   const accessToken = useSelector((state) => state.auth.accessToken);
-  // Get the accessToken from the Redux store
 
   const handleDeleteUser = async () => {
     setLoading(true);
@@ -35,9 +32,7 @@ const DeleteUser = () => {
       if (deleteResponse.ok) {
         dispatch(deleteUser()); // Handle success response or perform any necessary actions
         console.log('Delete user success:', deleteData);
-        setOpen(true); // Show the Snackbar when user is deleted successfully
-        console.log(deleteData.response); // Log the response message from the backend
-        console.log('Open value after setting to true:', open);
+        onUserDeleted();
       } else {
         setError(deleteData.response);
       }
@@ -50,13 +45,6 @@ const DeleteUser = () => {
     console.log('Loading value:', loading);
   };
 
-  const handleClose = () => {
-    setOpen(false); // Close the Snackbar
-  };
-
-  // Add a console log to check the value of 'open'
-  console.log('Open value:', open);
-
   return (
     <div>
       <Button
@@ -68,11 +56,6 @@ const DeleteUser = () => {
       </Button>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-        <MuiAlert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-          Membership deleted successfully!
-        </MuiAlert>
-      </Snackbar>
     </div>
   );
 };
