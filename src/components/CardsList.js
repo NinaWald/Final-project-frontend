@@ -18,15 +18,21 @@ const CardsList = () => {
       {products.map((product) => (
         <div className="cards" key={product.sys.id}>
           <Link to={`/product/${product.sys.id}`}>
-            <h2>{product.fields.name}</h2>
-            {product.fields.image && (
-              <img
-                src={product.fields.image.fields.file.url}
-                alt={product.fields.image.fields.title} />
-            )}
+            <div className="image-container">
+              {product.fields.image && (
+                <img
+                  src={product.fields.image.fields.file.url}
+                  alt={product.fields.image.fields.title} />
+              )}
+            </div>
+            <div className="product-name">
+              <h2>{product.fields.name}</h2>
+            </div>
             <p>Price: {product.fields.price}kr</p>
           </Link>
-          <CartItem productId={product.sys.id} />
+          <div className="cartitem-container">
+            <CartItem productId={product.sys.id} />
+          </div>
         </div>
       ))}
     </div>

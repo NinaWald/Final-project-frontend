@@ -11,7 +11,7 @@
     margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
-    gap: 5px; /* spacing between cards */
+    gap: 1px; /* spacing between cards */
     margin-left: 10px;
     margin-right: 10px;
     
@@ -19,45 +19,63 @@
 
   .cards {
     border: 1px solid #669999;
-    border-radius: 4px;
-    padding: 5px 0 5px 0;
-    margin-bottom: 5px;
+    border-radius: 1rem;
+    margin: 0.5rem;
     background-color: #dfdfd3;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-   
+    box-shadow: 0px 10px 8px #999;
+    height: fit-content;
+    width: 187px;
   }
   
   .cards h2 {
     font-size: 18px;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
+    padding: 5px;
+  }
+
+  .product-name {
+    height: 50px;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 250px;
   }
   
   .cards img {
     width: 100%;
+    height: 250px;
+    object-fit: cover;
+    /*
     max-height: fit-content;
-    object-fit: contain;
+    object-fit: contain; */
     margin-bottom: 8px;
+    border-radius: 1rem 1rem 0 0;
   }
   
   .cards p {
     font-size: 16px;
     margin-bottom: 8px;
   }
+  .cartitem-container {
+    margin-bottom: 10px;
+  }
+
    /* tablet */
   @media (min-width: 668px) and (max-width: 1060px) {
     .cards-grid {
       grid-template-columns: repeat(3, 1fr);
       margin-left: 100px;
       margin-right: 100px;
-      gap: 10px
+      gap: 10px;
     }
     .cards {
       border: 1px solid #669999;
-      border-radius: 4px;
-      /*padding: 5px;*/
+      
       margin: 5px;
       background-color: #dfdfd3;
       display: flex;
@@ -71,15 +89,14 @@
   @media (min-width: 1061px) {
     .cards-grid {
       grid-template-columns: repeat(4, 1fr);
-      margin-left: 150px;
-      margin-right: 150px;
+      margin-left: 180px;
+      margin-right: 180px;
       gap: 5px;
     }
 
     .cards {
       border: 1px solid #669999;
-      border-radius: 4px;
-      /*padding: 15px;*/
+    
       margin: 5px;
       background-color: #dfdfd3;
       display: flex;
@@ -89,7 +106,7 @@
     }
 
     .cards p {
-      font-size: 20px;
+      font-size: 15px;
     }
     .cards h2 {
       font-size: 20px
