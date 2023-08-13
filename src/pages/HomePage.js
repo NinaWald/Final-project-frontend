@@ -11,8 +11,8 @@ export const HomePage = () => {
   return (
     <div>
       <Hero />
-      <CategorySelection />
       <FlowerCarousel />
+      <CategorySelection />
       <CardsList />
       <GoToMember />
       <Dropdown />

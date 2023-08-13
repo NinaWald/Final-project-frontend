@@ -88,14 +88,15 @@
   @media (min-width: 1061px) {
     .cards-grid {
       grid-template-columns: repeat(4, 1fr);
-      margin-left: 280px;
-      margin-right: 280px;
-      gap: 5px;
+      justify-content: center; /* Center the cards horizontally */
+      width: 900px;
+      margin: 0 auto;
+      gap: 10px;
     }
 
     .cards {
       border: 1px solid #669999;
-    
+     
       margin: 5px;
       background-color: #dfdfd3;
       display: flex;

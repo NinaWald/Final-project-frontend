@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+:root {
+  --status-bar-background-color: rgba(171, 198, 188, 0.4);
+  --body-background-color: rgb(245, 245, 243);
+}
+
 
 body {
   margin: 0;
@@ -6,7 +11,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 3px;
-  background-color: rgb(245, 245, 243);
+  background-color: var(--body-background-color);
+}
+.status-bar {
+  background-color: var(--status-bar-background-color);
 }
 
 code {

@@ -11,6 +11,8 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  padding: 50px;
+ 
 `;
 
 const HeaderContainer = styled.div`
@@ -20,6 +22,7 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
 
   @media (max-width: 668px) {
     display: flex;
@@ -29,6 +32,7 @@ const HeaderContainer = styled.div`
 const ImageWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  border: 2px solid #669999;
 
   @media (min-width: 668px) {
     flex-direction: row;
