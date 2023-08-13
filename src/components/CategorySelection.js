@@ -16,8 +16,8 @@ const Container = styled.div`
 `;
 
 const HeaderContainer = styled.div`
-   margin-bottom: 15px;
-  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-top: 25px;
   font-size: 30px;
   display: flex;
   justify-content: center;
