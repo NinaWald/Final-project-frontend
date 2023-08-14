@@ -200,7 +200,7 @@ const RegistrationPage = () => {
                   className="input"
                   value={username}
                   type="text"
-                  placeholder="Your name"
+                  placeholder="name"
                   required />
               </label>
               <label className="label" htmlFor="emailInput">
@@ -210,7 +210,7 @@ const RegistrationPage = () => {
                   className="input"
                   value={useremail}
                   type="email"
-                  placeholder="E-mail"
+                  placeholder="email"
                   required />
               </label>
               <label className="label" htmlFor="passwordInput">
@@ -220,7 +220,7 @@ const RegistrationPage = () => {
                   className="input"
                   value={password}
                   type="password"
-                  placeholder="Password"
+                  placeholder="password"
                   required />
               </label>
 
