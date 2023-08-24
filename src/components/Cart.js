@@ -116,7 +116,7 @@ const Cart = () => {
             if (product) {
               return (
                 <ProductContainer key={item.id}>
-                  <Link to={`/products/${product.sys.id}`}>
+                  <Link to={`/product/${product.sys.id}`}>
                     <ProductImage
                       src={product.fields.image.fields.file.url}
                       alt={product.fields.image.fields.title} />
